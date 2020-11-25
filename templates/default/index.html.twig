@@ -36,4 +36,10 @@
             </ul>
         </div>
     </nav>
+
+    <div class="container">
+        {% for member in members %}
+        <li>{{ member.firstName}} {{ member.lastName }}</li>
+        {% endfor %}
+    </div>
 {% endblock %}
