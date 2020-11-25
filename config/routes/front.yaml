@@ -1,0 +1,3 @@
+#app_dashbaord:
+#  prefix: "/admin"
+#  resource: "routes/dashboard.yaml"

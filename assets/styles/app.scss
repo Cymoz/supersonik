@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/input-group";
+//@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Comfortaa"');
+@import "vars";
+body {
+    font-family: $font;
+    h1{
+        font-size: 19px;
+        color: $primary-color;
+    }
+}
