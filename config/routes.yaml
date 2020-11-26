@@ -1,3 +1,9 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+app_security:
+    resource: "routes/security.yaml"
+
+app_front:
+    resource: "routes/front.yaml"
+
+app_dashboard:
+    prefix: "/admin"
+    resource: "routes/dashboard.yaml"

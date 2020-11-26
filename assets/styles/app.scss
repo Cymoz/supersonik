@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import 'bootstrap/scss/bootstrap-grid';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/forms';
+@import 'variables';
+
+* {
+    font-family: $font;
+}
+
+h1, .h1 {
+    color: $primary-color;
+}

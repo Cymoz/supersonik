@@ -1,0 +1,4 @@
+dashboard_home:
+  path: /
+  controller: App\Controller\Admin\DashboardController::index
+  
