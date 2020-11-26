@@ -11,6 +11,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+    const ROLES = [
+        'ROLE_USER'=>'ROLE_USER',
+        'ROLE_ADMIN'=>'ROLE_ADMIN',
+        'ROLE_SUPER_ADMIN'=>'ROLE_SUPER_ADMIN'
+    ];
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -33,6 +39,28 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active=1;
+
+    public $plainPassword;
 
     public function getId(): ?int
     {
@@ -111,4 +139,70 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+
 }
