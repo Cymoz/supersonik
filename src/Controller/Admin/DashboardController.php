@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Member;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -28,7 +29,8 @@ class DashboardController extends AbstractDashboardController
     {
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-            MenuItem::linkToCrud('Members', 'fa fa-tags', Member::class),
+            MenuItem::linkToCrud('Users', 'fa fa-tags', Member::class),
+            MenuItem::linkToCrud('Team', 'fa fa-tags', User::class),
         ];
     }
 }

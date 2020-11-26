@@ -10,9 +10,11 @@ class DefaultController extends AbstractController
 {
     public function index(): Response
     {
-
+        $em = $this-> getDoctrine()->getManager();
+        $members = $em->getRepository('App:Member')->findAll();
         $context =[
-            'controller_name' => 'DefaultController'
+            'controller_name' => 'DefaultController',
+            'members' => $members
         ];
         return $this->render('default/index.html.twig', $context);
     }

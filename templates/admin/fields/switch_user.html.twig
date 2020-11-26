@@ -1,0 +1,4 @@
+{% set item = entity.instance  %}
+{% set switchRoute = 'ROLE_ADMIN' in item.roles? 'dashboard_home' : 'index' %}
+
+<a href="{{ path(switchRoute, {'_switch_user': item.email}) }}">{{ item.email }}</a>
