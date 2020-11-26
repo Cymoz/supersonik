@@ -1,5 +1,4 @@
-app_front:
-    resource: "routes/front.yaml"
+
 
 app_dashboard:
     prefix: "/admin"
