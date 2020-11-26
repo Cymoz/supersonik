@@ -1,0 +1,23 @@
+@import "_vars";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    font-family: $font;
+
+}
+body {
+    background-color: lightgray;
+}
+
+.ast-header{
+    margin-top: 20%;
+    text-align: center;
+    color:whitesmoke;
+}
+#ast-header-image{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 700px;
+}
