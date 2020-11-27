@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -26,13 +25,13 @@ class Member
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
-    private $image;
+    private $imageName;
 
     /**
-     * @Vich\UploadableField(mapping="member_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="member_images", fileNameProperty="imageName")
      * @var File
      */
     private $imageFile;
@@ -81,13 +80,6 @@ class Member
     {
         $this->imageFile = $image;
 
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
-        }
     }
 
     public function getImageFile()
@@ -95,18 +87,20 @@ class Member
         return $this->imageFile;
     }
 
-    public function setImage($image)
+    public function setImageName($imageName)
     {
-        $this->image = $image;
+        $this->imageName = $imageName;
     }
 
-    public function getImage()
+    public function getImageName()
     {
-        return $this->image;
+        return $this->imageName;
     }
+
+
 
     public function __toString()
     {
-        return $this->firstName." ".$this->lastName;
+        return $this->getId()." ".$this->firstName." ".$this->lastName;
     }
 }

@@ -13,6 +13,8 @@ class DefaultController extends AbstractController
         $em = $this->getDoctrine()->getManager();
 
         $members = $em->getRepository('App:Member')->findAll();
+        /**@var \App\Entity\Member $member */
+
 
         $context = [
             'controller_name' => 'DefaultController',
