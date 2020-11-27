@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=MemberRepository::class)
+ * @Vich\Uploadable
  */
 class Member
 {
@@ -26,6 +28,18 @@ class Member
      * @ORM\Column(type="string", length=50)
      */
     private $lastName;
+
+    /**
+     * @Vich\UploadableField(mapping="member_image", fileNameProperty="imageName", size="imageSize")
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string|null
+     */
+    private $imageName;
 
     public function getId(): ?int
     {
@@ -54,5 +68,27 @@ class Member
         $this->lastName = $lastName;
 
         return $this;
+    }
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
     }
 }
