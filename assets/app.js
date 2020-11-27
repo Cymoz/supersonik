@@ -5,11 +5,21 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+<<<<<<< HEAD
 // any CSS you import will output into a single css file (app.css in this case)
+=======
+// any CSS you import will output into a single css file (app.scss in this case)
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39
 import './styles/app.scss';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
+<<<<<<< HEAD
 console.log('Hello Webpack Encore! Edit me in assets/app.js');
+=======
+
+console.log('Hello Webpack Encore! Edit me in assets/app.js');
+console.log($('body'));
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39
 window.$ = $;

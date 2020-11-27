@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 @import "node_modules/bootstrap/scss/mixins";
 @import "node_modules/bootstrap/scss/bootstrap-grid";
@@ -21,4 +22,18 @@ body {
 
 h1, .h1 {
     color: $primary-color;
+=======
+@import "bootstrap-custom";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import "vars";
+
+
+*{
+font-family: $font;
+}
+
+.my-color {
+  color: $primary-color;
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39
 }

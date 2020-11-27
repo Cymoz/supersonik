@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 app_front:
    prefix: "/"
    resource: "routes/front.yaml"
@@ -6,3 +7,8 @@ app_front:
 app_dashboard:
    prefix: "/admin"
    resource: "routes/dashboard.yaml"
+=======
+app_dashboard:
+    prefix: "/admin"
+    resource: "routes/dashboard.yaml"
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39

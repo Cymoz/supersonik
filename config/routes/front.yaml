@@ -1,7 +1,16 @@
 index:
+<<<<<<< HEAD
    path: /
    controller: App\Controller\DefaultController::index
 
 page2:
   path: /page2
   controller: App\Controller\DefaultController::page2
+=======
+  path: /
+  controller: App\Controller\DefaultController::index
+
+contact:
+  path: /contact
+  controller: App\Controller\DefaultController::contact
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39

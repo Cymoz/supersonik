@@ -2,6 +2,7 @@
 
 {% block title %}Hello DefaultController!{% endblock %}
 
+<<<<<<< HEAD
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -46,4 +47,16 @@
 </div>
 {% endblock %}
 {% block javascripts %}
+=======
+
+
+{% block body %}
+    <div class="container">
+        <h1>Ici la liste des membres:</h1>
+
+        {% for member in members %}
+            <li>{{ member.firstName}} {{ member.lastName }}</li>
+        {% endfor %}
+    </div>
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39
 {% endblock %}

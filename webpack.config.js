@@ -21,10 +21,16 @@ Encore
      * (including one that's included on every page - e.g. "app")
      *
      * Each entry will result in one JavaScript file (e.g. app.js)
+<<<<<<< HEAD
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
     //.addEntry('app', './assets/header.js')
+=======
+     * and one CSS file (e.g. app.scss) if your JavaScript imports CSS.
+     */
+    .addEntry('app', './assets/app.js')
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39
     //.addEntry('page1', './assets/page1.js')
     //.addEntry('page2', './assets/page2.js')
 

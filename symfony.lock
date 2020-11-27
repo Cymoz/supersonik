@@ -23,6 +23,9 @@
     "doctrine/common": {
         "version": "3.0.2"
     },
+    "doctrine/data-fixtures": {
+        "version": "1.4.4"
+    },
     "doctrine/dbal": {
         "version": "2.12.1"
     },
@@ -39,6 +42,18 @@
             "./config/packages/prod/doctrine.yaml",
             "./src/Entity/.gitignore",
             "./src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "e5b542d4ef47d8a003c91beb35650c76907f7e53"
+        },
+        "files": [
+            "./src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -153,7 +168,11 @@
             "ref": "71599f5b0fdeeeec0fb90e9b17c85e6f5e1350c1"
         },
         "files": [
+<<<<<<< HEAD
             "public/.htaccess"
+=======
+            "./public/.htaccess"
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39
         ]
     },
     "symfony/asset": {
@@ -531,6 +550,7 @@
             "ref": "69e1d805ad95964088bd510c05995e87dc391564"
         },
         "files": [
+<<<<<<< HEAD
             "assets/app.js",
             "assets/styles/app.css",
             "config/packages/assets.yaml",
@@ -539,6 +559,16 @@
             "config/packages/webpack_encore.yaml",
             "package.json",
             "webpack.config.js"
+=======
+            "./assets/app.js",
+            "./assets/styles/app.css",
+            "./config/packages/assets.yaml",
+            "./config/packages/prod/webpack_encore.yaml",
+            "./config/packages/test/webpack_encore.yaml",
+            "./config/packages/webpack_encore.yaml",
+            "./package.json",
+            "./webpack.config.js"
+>>>>>>> 446e837a159d156f34b837c03fe571a31b856b39
         ]
     },
     "symfony/yaml": {
