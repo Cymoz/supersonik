@@ -6,6 +6,7 @@ use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -74,7 +75,7 @@ class Member
         return $this;
     }
     /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @param File|UploadedFile|null $imageFile
      */
     public function setImageFile(?File $imageFile = null): void
     {

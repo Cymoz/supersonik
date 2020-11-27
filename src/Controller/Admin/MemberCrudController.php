@@ -37,8 +37,9 @@ class MemberCrudController extends AbstractCrudController
             TextField::new('lastName'),
 
             ImageField::new('imageName', 'Image')
-            ->setUploadDir('public' . $this->params->get('app.path.member_images'))
-            ->setTemplatePath('admin/vich_uploader_image.html.twig')
+                ->setUploadDir('public' . $this->params->get('app.path.member_images'))
+                ->setTemplatePath('admin/vich_uploader_image.html.twig')
+                ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
         ];
     }
 
