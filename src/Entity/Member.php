@@ -95,4 +95,9 @@ class Member
     {
         return $this->imageName;
     }
+
+    public function __toString()
+    {
+      return $this->firstName. " " . $this->getLastName();
+    }
 }

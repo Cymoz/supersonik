@@ -9,6 +9,9 @@
         <h1>Ici la liste des membres:</h1>
 
         {% for member in members %}
+
+            <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}" alt="{{ member }}"/>
+
             <li>{{ member.firstName}} {{ member.lastName }}</li>
         {% endfor %}
     </div>
