@@ -1,0 +1,24 @@
+
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/bootstrap-grid";
+@import "node_modules/bootstrap/scss/_forms";
+@import "node_modules/bootstrap/scss/_functions";
+@import "node_modules/bootstrap/scss/_variables";
+@import "node_modules/bootstrap/scss/_buttons";
+@import "node_modules/bootstrap/scss/_input-group";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import '_vars';
+
+body {
+    background-color: lightgray;
+}
+
+* {
+    font-family: $font;
+}
+
+h1, .h1 {
+    color: $primary-color;
+}
