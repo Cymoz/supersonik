@@ -10,7 +10,15 @@
             {% for member in members %}
 
                 <div class="col-4">
-                    <img src="{{ vich_uploader_asset(member, 'imageFile') }}" alt="{{ member }}">
+{#
+                    {% set runtimeConfig = {"thumbnail": {"size": [50, 50] }} %}
+#}
+
+                    <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}" alt="{{ member }}" />
+
+{#
+                    <img src="{{ vich_uploader_asset(member, 'imageFile') }}">
+#}
                     <br>
                     {{ member.firstName }} {{ member.lastName }}
                 </div>
