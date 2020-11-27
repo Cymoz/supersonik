@@ -1,0 +1,20 @@
+@import "bootstrap-custom";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import "vars";
+@import "images";
+
+
+*{
+font-family: $font;
+}
+
+.my-color {
+  color: $primary-color;
+}
+
+h1 {
+  //text-align: center;
+  display: flex;
+  justify-content: center;
+}

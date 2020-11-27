@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agence Supersonik{% endblock %}
+
+
+
+{% block body %}
+    <div class="container">
+            <h1 class="my-color">Notre équipe :</h1>
+
+            {% for member in members %}
+                <div class="row">
+                    <div class="col-12">
+                        <img class="member_img" src="{{vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop')}}"
+                            alt ="{{member}}"/>
+                        <li>{{ member.firstName}} {{ member.lastName }}</li>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+{% endblock %}
