@@ -10,5 +10,5 @@ liip_imagine:
             png_compression_level: 8
             filters:
                 thumbnail:
-                    size: [360,360]
+                    size: [360,230]
                     mode: outbound

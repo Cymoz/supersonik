@@ -40,7 +40,7 @@ class Member
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * @var string|null
      */
     private $imageName;
