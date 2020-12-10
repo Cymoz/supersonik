@@ -17,6 +17,7 @@ class Member
 {
     use TimestampableEntity;
 
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -45,6 +46,8 @@ class Member
      * @ORM\Column(type="string", length=50)
      */
     private $lastName;
+
+    private $oldImage;
 
 
     public function getId(): ?int
@@ -96,6 +99,7 @@ class Member
     {
         return $this->imageName;
     }
+
 
 
 

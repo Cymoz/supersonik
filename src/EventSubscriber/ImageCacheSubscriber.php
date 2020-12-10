@@ -45,8 +45,9 @@ class ImageCacheSubscriber implements EventSubscriber
 
 
         $entity = $args->getObject();
+        dump($entity);
         if($entity instanceof Member){
-            $this->manager->remove($this->helper->asset($entity,"imageFile"));
+            //$this->manager->remove($this->helper->asset($entity,"imageFile"));
         }
     }
 

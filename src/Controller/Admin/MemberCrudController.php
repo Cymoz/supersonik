@@ -39,8 +39,16 @@ class MemberCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
 
-        $imageFile = ImageField::new('imageFile', 'Photo')->setFormType(VichImageType::class);
-        $imageName = ImageField::new('imageName', 'Photo')->setBasePath('public' . $this->params->get('app.path.member_images'));
+        $imageFile = ImageField::new('imageFile', 'Photo')
+            ->setUploadDir('public' . $this->params->get('app.path.member_images'))
+            ->setTemplatePath('admin/vich_uploader_image.html.twig')
+            ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]')
+        ;
+        $imageName = ImageField::new('imageName', 'Photo')
+            ->setUploadDir('public' . $this->params->get('app.path.member_images'))
+                ->setTemplatePath('admin/vich_uploader_image.html.twig')
+                ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]')
+            ;
 
         $fields =  [
             IdField::new('id')->onlyOnIndex(),
@@ -51,7 +59,8 @@ class MemberCrudController extends AbstractCrudController
                 ->setUploadDir('public' . $this->params->get('app.path.member_images'))
                 //->setFormType(VichImageType::class)
                 ->setBasePath('public' . $this->params->get('app.path.member_images'))
-                ->setTemplatePath('admin/vich_uploader_image.html.twig'),
+                ->setTemplatePath('admin/vich_uploader_image.html.twig')
+                ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]'),
 
         ];
 
