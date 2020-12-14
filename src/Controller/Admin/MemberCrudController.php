@@ -2,11 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use App\Admin\Field\TranslationField;
 use App\Entity\Member;
+use Doctrine\DBAL\Types\TextType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class MemberCrudController extends AbstractCrudController
@@ -28,9 +34,28 @@ class MemberCrudController extends AbstractCrudController
         return Member::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setFormThemes(
+                [
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                    '@A2lixTranslationForm/bootstrap_4_layout.html.twig',
+                    '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+                ]
+            );
+    }
 
     public function configureFields(string $pageName): iterable
     {
+        $fieldsConfig = [
+            'description' => [
+                'field_type' => CKEditorType::class,
+                'required' => true,
+                'label' => 'Description'
+            ]
+        ];
+
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('firstName'),
@@ -39,7 +64,11 @@ class MemberCrudController extends AbstractCrudController
             ImageField::new('imageName', 'Image')
                 ->setUploadDir('public' . $this->params->get('app.path.member_images'))
                 ->setTemplatePath('admin/vich_uploader_image.html.twig')
-                ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
+                ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]'),
+
+            TranslationField::new('translations', 'Details', $fieldsConfig)
+                ->setRequired(true)
+                ->hideOnIndex()
         ];
     }
 
