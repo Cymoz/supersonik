@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Member;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -31,6 +32,11 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Members', 'fa fa-user', Member::class),
             MenuItem::linkToCrud('Users', 'fa fa-user', User::class)
         ];
-        // yield MenuItem::linkToCrud('The Label', 'icon class', EntityClass::class);
+
+    }
+
+    public function configureAssets(): Assets
+    {
+        return Assets::new()->addCssFile('build/admin.css');
     }
 }

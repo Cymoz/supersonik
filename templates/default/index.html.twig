@@ -17,6 +17,7 @@
             {% endif %}
 
             <li>{{ member.firstName }} {{ member.lastName }}</li>
+            {{ member.description|raw }}
         {% endfor %}
 
     </div>
