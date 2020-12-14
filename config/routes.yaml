@@ -11,3 +11,9 @@ _liip_imagine:
 app_dashboard:
     prefix: "/admin"
     resource: "routes/dashboard.yaml"
+
+front: 
+    resource: 'routes/front.yaml'
+    prefix:
+        fr: '/'
+        en: '/en'

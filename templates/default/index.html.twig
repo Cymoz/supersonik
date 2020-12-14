@@ -1,21 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Agence Supersonik{% endblock %}
-
-
+{% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-    <div class="container">
-            <h1 class="my-color">Notre équipe :</h1>
 
+
+    <div class="container">
+        <div class="row">
+            locale {{app.request.locale}}<br>
             {% for member in members %}
-                <div class="row">
-                    <div class="col-12">
-                        <img class="member_img" src="{{vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop')}}"
-                            alt ="{{member}}"/>
-                        <li>{{ member.firstName}} {{ member.lastName }}</li>
-                    </div>
+
+                <div class="col-4">
+                    {% set runtimeConfig = {"thumbnail": {"size": [50, 50] }} %}
+
+                    <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}"
+                         alt="{{ member }}" />
+
+                    <br>
+                    {{ member.firstName }} {{ member.lastName }}
                 </div>
             {% endfor %}
+        </div>
+
     </div>
 {% endblock %}
