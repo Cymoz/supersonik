@@ -50,7 +50,6 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 
     public function imageUpdate(BeforeEntityUpdatedEvent $event)
     {
-
         $entity = $event->getEntityInstance();
 
         $uow = $this->em->getUnitOfWork();

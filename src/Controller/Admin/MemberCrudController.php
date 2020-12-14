@@ -2,18 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use App\Admin\Field\TranslationField;
 use App\Entity\Member;
-use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Dto\CrudDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class MemberCrudController extends AbstractCrudController
@@ -35,6 +34,18 @@ class MemberCrudController extends AbstractCrudController
         return Member::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_4_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                    '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+                ]
+            );
+    }
+
 
     public function configureFields(string $pageName): iterable
     {
@@ -46,9 +57,17 @@ class MemberCrudController extends AbstractCrudController
         ;
         $imageName = ImageField::new('imageName', 'Photo')
             ->setUploadDir('public' . $this->params->get('app.path.member_images'))
-                ->setTemplatePath('admin/vich_uploader_image.html.twig')
-                ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]')
+            ->setTemplatePath('admin/vich_uploader_image.html.twig')
+            ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]')
             ;
+
+        $fieldsConfig = [
+            "description" => [
+                'field_type' => CKEditorType::class,
+                'required' => true,
+                'label' => 'Description'
+            ]
+        ];
 
         $fields =  [
             IdField::new('id')->onlyOnIndex(),
@@ -61,6 +80,10 @@ class MemberCrudController extends AbstractCrudController
                 ->setBasePath('public' . $this->params->get('app.path.member_images'))
                 ->setTemplatePath('admin/vich_uploader_image.html.twig')
                 ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]'),
+
+            TranslationField::new('translations', "Label", $fieldsConfig)
+                ->setRequired(true)
+                ->hideOnIndex()
 
         ];
 
@@ -75,24 +98,6 @@ class MemberCrudController extends AbstractCrudController
 
     }
 
-    /**
-     *
-     * @param EntityManagerInterface $entityManager
-     * @param $entityInstance
-     */
-    public function persistEntity(EntityManagerInterface $entityManager, $member): void
-    {
 
-     /*   //dd($member);
-
-        /**@var \App\Entity\Member $member */
-        /*
-        if($member->getImageFile() instanceof UploadedFile){
-            dd('image');
-            //$this->cacheManager->remove($this->uploaderHelper->asset($member,'imageFile'));
-        }*/
-
-        parent::updateEntity($entityManager, $member);
-    }
 
 }

@@ -21,7 +21,8 @@
                          alt="{{ member }}" />
 
                     <br>
-                    {{ member.firstName }} {{ member.lastName }}
+                    {{ member.firstName }} {{ member.lastName }}<br>
+                    {{ member.description|raw }}
                 </div>
             {% endfor %}
         </div>
