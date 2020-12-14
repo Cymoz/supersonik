@@ -6,14 +6,19 @@
 
 {% block body %}
     <div class="container">
+
+        locale: {{ app.request.locale }}
         <h1>Ici la liste des membres:</h1>
 
         {% for member in members %}
             {% if member.imageName %}
-                <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}" alt="{{ member }}"/>
+                <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}"
+                     alt="{{ member }}"/>
             {% endif %}
 
-            <li>{{ member.firstName}} {{ member.lastName }}</li>
+            <li>{{ member.firstName }} {{ member.lastName }}</li>
         {% endfor %}
+
     </div>
+
 {% endblock %}

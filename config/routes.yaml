@@ -1,6 +1,13 @@
+front:
+    resource: 'routes/front.yaml'
+    prefix:
+        fr: '/'
+        en: '/en'
+
 app_dashboard:
     prefix: "/admin"
     resource: "routes/dashboard.yaml"
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.yaml"
+
