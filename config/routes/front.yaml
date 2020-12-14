@@ -4,6 +4,6 @@ index:
 
 contact:
   path:
-    fr: /nous-contacter
-    en: /contact-us
-  controller: App\Controller\DefaultController::index
+    fr: /nous-contacter/
+    en: /contact-us/
+  controller: App\Controller\DefaultController::contact
