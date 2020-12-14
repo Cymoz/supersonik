@@ -3,5 +3,7 @@ index:
   controller: App\Controller\DefaultController::index
 
 contact:
-  path: /contact
-  controller: App\Controller\DefaultController::contact
+  path:
+    fr: /nous-contacter
+    en: /contact-us
+  controller: App\Controller\DefaultController::index

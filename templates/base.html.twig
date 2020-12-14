@@ -12,38 +12,54 @@
 
 
 {% block nav %}
+    {{ dump(app.request.attributes) }}
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a class="navbar-brand" href="#"><img
-                src="https://www.agence-supersonik.com/contenu/uploads/2017/11/logo-sk-black-300x113.png" alt="logo"
-                scale="0"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link">Accueil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">L'agence</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" target="">Réalisations</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" target="">Expertise</a>
-            </li>
-            <li>
-                <a class="nav-link" target="">Supermag</a>
-            </li>
+        <a class="navbar-brand" href="#"><img
+                    src="https://www.agence-supersonik.com/contenu/uploads/2017/11/logo-sk-black-300x113.png" alt="logo"
+                    scale="0"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">L'agence</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="">Réalisations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="">Expertise</a>
+                </li>
+                <li>
+                    <a class="nav-link" target="">Supermag</a>
+                </li>
 
-            <li>
-                <a class="nav-link" target="" href="{{ path('contact') }}">Contact</a>
-            </li>
-        </ul>
-    </div>
+                <li>
+                    <a class="nav-link" target="" href="{{ path('contact') }}">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        {{ app.request.locale }}
+                    </a>
+                    <div class="dropdown-menu">
+                        {% for locale in LOCALES %}
+                            <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),{'_locale':locale}) }}">{{ locale }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
     </nav>
 
 {% endblock %}
