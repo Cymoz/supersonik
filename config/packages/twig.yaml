@@ -4,6 +4,4 @@ twig:
     strict_variables: '%kernel.debug%'
     exception_controller: null
     globals:
-        LOCALES:
-            - fr
-            - en
+        LOCALES: '%locales%'
