@@ -31,7 +31,7 @@ class DefaultController extends AbstractController
         return $this->render('default/contact.html.twig', $context);
     }
 
-    public function page($slug, EntityManagerInterface $entityManager)
+    public function page($slug, EntityManagerInterface $entityManager): Response
     {
 
         $tabLocales = $this->getParameter('locales');
@@ -51,6 +51,10 @@ class DefaultController extends AbstractController
             throw new NotFoundHttpException('404', null, 404);
         }
 
-        dd($page->getTitle());
+        $template = $page->getTemplate() ?: 'page/default.html.twig';
+
+        $context['page'] = $page;
+
+        return $this->render($template, $context);
     }
 }
