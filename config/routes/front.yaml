@@ -7,3 +7,11 @@ contact:
     fr: /nous-contacter
     en: /contact-us
   controller: App\Controller\DefaultController::contact
+
+page:
+  path:
+    fr: /{slug}
+    en: /{slug}
+  controller: App\Controller\DefaultController::page
+  requirements:
+    slug: '^(?!admin).+'

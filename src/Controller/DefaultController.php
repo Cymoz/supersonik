@@ -29,4 +29,8 @@ class DefaultController extends AbstractController
         ];
         return $this->render('default/contact.html.twig', $context);
     }
+
+    public function page($slug){
+
+    }
 }

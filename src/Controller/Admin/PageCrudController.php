@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PageCrudController extends AbstractCrudController
 {
@@ -34,8 +34,7 @@ class PageCrudController extends AbstractCrudController
     {
         $fieldsConfig = [
             'description' => [
-                'field_type' => CKEditorType::class,
-                'required' => true,
+                'field_type' => TextareaType::class,
                 'label' => 'Description'
             ]
         ];
