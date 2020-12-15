@@ -4,7 +4,9 @@ namespace App\Entity;
 
 use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Timestampable\Traits\Timestampablentity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -12,8 +14,11 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity(repositoryClass=MemberRepository::class)
  * @Vich\Uploadable
  */
-class Member
+class Member implements TranslatableInterface
 {
+    use TimestampableEntity;
+    use TranslatableTrait;
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -92,6 +97,10 @@ class Member
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function __call($method, $arguments) {
+        
     }
 
     public function __toString()
