@@ -58,4 +58,9 @@ class Page implements TranslatableInterface
 
         return $this;
     }
+
+    public function __call($method, $arguments){
+        return $this->proxyCurrentLocaleTranslation($method,$arguments);
+    }
+
 }
