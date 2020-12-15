@@ -19,7 +19,8 @@ class AppRuntime implements RuntimeExtensionInterface
         $this->routingExtension = $routingExtension;
     }
 
-    public function pageUrl($context, $alias){
+    public function pageUrl($context, $alias): string
+    {
         $page = $this->em->getRepository('App:Page')->findOneBy(['alias'=>$alias]);
 
         if(!$page){

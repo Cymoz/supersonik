@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title> {% block meta_title %}Welcome!{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}{% endblock %}" >
-    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}" >
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 
+    {% if page is defined %}
+        {% for link in page.translations %}
+            <link rel="alternate" hreflang="{{ link.locale }}"
+                  href="{{ app.request.schemeAndHttpHost }}{{ path(app.request.attributes.get('_route'), {'_locale':link.locale, 'slug':link.slug}) }}">
+        {% else %}
+            {% for locale in LOCALES %}
+                <link rel="alternate" hreflang="{{ locale }}"
+                      href="{{ app.request.schemeAndHttpHost }}{{ path(app.request.attributes.get('_route'),
+                          app.request.attributes.get('_route_params')|merge({'_locale':locale})) }}">
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
 
     {{ encore_entry_link_tags('app') }}
     {% block stylesheets %}
@@ -44,15 +56,24 @@
                 </li>
                 <li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{app.request.locale }}
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ app.request.locale }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {% for locale in LOCALES %}
-                            <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),
-                                app.request.attributes.get('_route_params')|merge({'_locale':locale})
-                            ) }}">{{ locale }}</a>
-                        {% endfor %}
+                        {% if page is defined %}
+                            {% for link in page.translations %}
+                                <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),
+                                    app.request.attributes.get('_route_params')|merge({'_locale':link.locale, 'slug': link.slug})
+                                ) }}">{{ link.locale }}</a>
+                            {% endfor %}
+                        {% else %}
+                            {% for locale in LOCALES %}
+                                <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),
+                                    app.request.attributes.get('_route_params')|merge({'_locale':locale})
+                                ) }}">{{ locale }}</a>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </li>
                 </li>
