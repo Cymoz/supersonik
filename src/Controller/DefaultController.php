@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -30,9 +33,25 @@ class DefaultController extends AbstractController
         return $this->render('default/contact.html.twig', $context);
     }
 
-    public function page($slug)
+    public function page(Request $request, $slug, EntityManagerInterface $em)
     {
-        
+        $tabLocales = $this->getParameter('locales');
+
+        $tabTmp = explode("/", $slug);
+
+        if(in_array($tabTmp[0], $tabLocales))
+        {
+            $slug = substr($slug, 3, strlen($slug));
+        }
+
+        $page = $em->getRepository('App:Page')->getOneBySlug(['slug'=>$slug]);
+
+        if (!$page){
+            throw new NotFoundHttpException('404', null, 404);
+        }
+
+        dd($page->getTitle());
     }
+
 
 }

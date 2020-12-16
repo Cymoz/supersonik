@@ -7,7 +7,11 @@
 
     <div class="container">
         <div class="row">
-            locale {{app.request.locale}}<br>
+            <div class="col-12">
+            locale : {{ app.request.locale }}<br>
+
+            </div>
+
             {% for member in members %}
 
                 <div class="col-4">

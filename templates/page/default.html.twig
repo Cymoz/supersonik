@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+
+{% block meta_title %} {{page.title}} {% endblock %}
+{% block meta_description %}{{page.description}}{% endblock %}
+{% block meta_keyword %}{{page.keywords}}{% endblock %}
+
+
+{% if page is defined %}
+
+    {% for link in page.translations %}
+        <link rel="alternate" hreflang="{{link.locale}}" href="{{ path
+            (app.request.attributes.get('_routes'),
+            {'_locale':link.locale, 'slug':link.slug}
+        ,false) }}">
+    {% endfor %}
+
+{% else %}
+
+    {% for locale in LOCALES %}
+        <link rel="alternate" hreflang="{{locale}}" href="{{ path
+            (app.request.attributes.get('_routes'),
+            (app.request.attributes.get('_routes_params')|merge({'_locale':locale})
+        ,false) }}">
+    {% endfor %}
+
+{% endif %}   
+
+{{ encore_entry_link_tags('app') }}
+{% block stylesheets %}
+{% endblock %}
+
+
+{% block body %}
+
+{% endblock %}

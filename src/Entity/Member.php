@@ -27,6 +27,18 @@ class Member implements TranslatableInterface
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $imageName;
+
+    /**
+     * @Vich\UploadableField(mapping="member_images", fileNameProperty="imageName")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=50)
      */
     private $firstName;
@@ -40,13 +52,12 @@ class Member implements TranslatableInterface
      * @Vich\UploadableField(mapping="member_image", fileNameProperty="imageName")
      * @var File|null
      */
-    private $imageFile;
+    
 
     /**
      * @ORM\Column(type="string")
      * @var string|null
      */
-    private $imageName;
 
     public function getId(): ?int
     {
@@ -99,8 +110,8 @@ class Member implements TranslatableInterface
         return $this->imageName;
     }
 
-    public function __call($method, $arguments) {
-        
+    public function __call($method, $arguments){
+        return $this->proxyCurrentLocaleTranslation($method,$arguments);
     }
 
     public function __toString()

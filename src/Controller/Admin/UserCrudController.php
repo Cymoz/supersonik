@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -38,18 +41,26 @@ class UserCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+
             EmailField::new('email')
                 ->setHelp("L'email doit être unique")
                 ->setTemplatePath('admin/fields/switch_user.html.twig'),
-            TextField::new('firstName'),
-            TextField::new('lastName'),
-            TextField::new('plainPassword', 'Password')
-                ->setFormType(PasswordType::class)
-                ->onlyOnForms(),
-            TextEditorField::new('description'),
-            ChoiceField::new('roles')
+
+            TextField::new('firstname', 'Prénom'),
+
+
+            TextField::new('lastname', 'Nom'),
+
+            TextEditorField::new('description', 'Description'),
+
+            ChoiceField::new('roles', 'Roles')
                 ->allowMultipleChoices()
                 ->setChoices(User::ROLES),
+
+            TextField::new('plainPassword', 'Mot de passe')
+                ->setFormType(PasswordType::class)
+                ->onlyOnForms(),
+
             BooleanField::new('active')->hideOnForm()
         ];
     }

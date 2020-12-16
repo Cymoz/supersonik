@@ -12,8 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
-
 
 class MemberCrudController extends AbstractCrudController
 {
@@ -37,7 +37,7 @@ class MemberCrudController extends AbstractCrudController
         return $crud
             ->setFormThemes(
                 [
-                    '@a2lixTranslationForm/bootstrap_4_layout.html.twig',
+                    '@A2lixTranslationForm/bootstrap_4_layout.html.twig',
                     '@EasyAdmin/crud/form_theme.html.twig',
                     '@FOSCKEditor/Form/ckeditor_widget.html.twig'
                 ]
@@ -51,7 +51,6 @@ class MemberCrudController extends AbstractCrudController
             ->setTemplatePath('admin/vich_uploader_image.html.twig')
             ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]')
         ;
-
         $imageName = ImageField::new('imageName', 'Photo')
             ->setUploadDir('public' . $this->params->get('app.path.member_images'))
             ->setTemplatePath('admin/vich_uploader_image.html.twig')
@@ -64,23 +63,37 @@ class MemberCrudController extends AbstractCrudController
                 'required' => true,
                 'label' => 'Description'
             ]
-         ];
+        ];
 
-        $fields = [
+        $fields =  [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('firstname'),
             TextField::new('lastname'),
 
-            ImageField::new('imageName', 'photo')
+            ImageField::new('imageName', 'Photo')
                 ->setUploadDir('public' . $this->params->get('app.path.member_images'))
-                ->setTemplatePath('admin/vich_uploader_image.html.twig')
+                //->setFormType(VichImageType::class)
                 ->setBasePath('public' . $this->params->get('app.path.member_images'))
+                ->setTemplatePath('admin/vich_uploader_image.html.twig')
                 ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]'),
-            
-            TranslationField::new('translations', 'Details', $fieldsConfig)
+
+            TranslationField::new('translations', "Label", $fieldsConfig)
                 ->setRequired(true)
                 ->hideOnIndex()
+
         ];
+
+       /* if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL){
+            $fields[] = $imageName;
+        }else{
+            $fields[] = $imageFile;
+        }*/
+
         return $fields;
+
+
     }
+
+
+
 }

@@ -9,3 +9,4 @@
 import './styles/app.scss';
 
 console.log('assets/admin.js');
+import './styles/admin.scss';
