@@ -1,6 +1,7 @@
 <?php
 namespace App\EventListener;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Twig\Environment;
 
@@ -26,7 +27,7 @@ class ExceptionListener
         $exception = $event->getThrowable();
 
         if($exception->getCode() == 404){
-            dump("test1");
+
             $receiver = ['mounir.senaoui@gmail.com'];
             $info = 'Test de contenu';
 
@@ -39,9 +40,12 @@ class ExceptionListener
                         'info' => $info
                     ]), 'text/html'
                 );
-            dump("test2");
+
             $this->mailer->send($message);
-            dump("test3");
+
+            $reponse = new Response($this->twig->render('exception/404.html.twig'), $exception->getCode());
+
+            $event->setResponse($reponse);
         }
     }
 }
