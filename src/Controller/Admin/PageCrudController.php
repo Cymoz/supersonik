@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PageCrudController extends AbstractCrudController
@@ -36,6 +37,10 @@ class PageCrudController extends AbstractCrudController
             'description' => [
                 'field_type' => TextareaType::class,
                 'label' => 'Description'
+            ],
+            'content' => [
+                'field_type' => CKEditorType::class,
+                'label' => 'Content'
             ]
         ];
 
@@ -43,6 +48,7 @@ class PageCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('alias'),
             TextField::new('template'),
+
 
             TranslationField::new('translations', 'Details', $fieldsConfig)
                 ->setRequired(true)

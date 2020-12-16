@@ -7,6 +7,11 @@ use Twig\TwigFunction;
 
 class AppExtension extends AbstractExtension
 {
+    public function getFilters()
+    {
+     
+    }
+
     public function getFunctions()
     {
         return [

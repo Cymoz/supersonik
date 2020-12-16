@@ -8,3 +8,5 @@ fos_ck_editor:
     configs:
         my_config:
             toolbar: standard
+            contentsCss: "/front_css.php"
+            allowedContent: true
