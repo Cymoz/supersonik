@@ -2,7 +2,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
     <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {% if page is defined %}
+        {% for link in page.translations %}
+            <link rel="alternate" hreflang="{{ link.locale }}" href="{{ app.request.schemeAndHttpHost }}{{ path(app.request.attributes.get('_route'), {'_locale': link.locale, 'slug': link.slug}) }}">
+        {% endfor %}
+    {% else %}
+        {% for locale in LOCALES %}
+            <link rel="alternate" hreflang="{{ locale }}" href="{{ app.request.schemeAndHttpHost }}{{ path(
+                app.request.attributes.get('_route'),
+                app.request.attributes.get("_route_params") |merge({'_locale': locale})
+            ) }}">
+        {% endfor %}
+    {% endif %}
 
     {{ encore_entry_link_tags('app') }}
     {% block stylesheets %}
@@ -50,11 +65,20 @@
                         {{ app.request.locale }}
                     </a>
                     <div class="dropdown-menu">
-                        {% for locale in LOCALES %}
-                            <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),
-                                app.request.attributes.get("_route_params") |merge({'_locale': locale})
+                        {% if page is defined %}
+                            {% for link in page.translations %}
+                                <a class="dropdown-item" href="{{ app.request.schemeAndHttpHost }}{{ path(
+                                    app.request.attributes.get('_route'), {'_locale': link.locale, 'slug': link.slug}) }}">{{ link.locale }}</a>
+                            {% endfor %}
+                        {% else %}
+                            {% for locale in LOCALES %}
+                                <a class="dropdown-item" href="{{ app.request.schemeAndHttpHost }}{{ path(
+                                    app.request.attributes.get('_route'),
+                                    app.request.attributes.get("_route_params") |merge({'_locale': locale})
                                 ) }}">{{ locale }}</a>
-                        {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+
                     </div>
                 </li>
 

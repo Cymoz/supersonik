@@ -19,6 +19,19 @@ class PageRepository extends ServiceEntityRepository
         parent::__construct($registry, Page::class);
     }
 
+
+
+    public function getOneBySlug($slug){
+        return $this->createQueryBuilder('p')
+            ->join('p.translations', 'pt')
+            ->where('pt.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult()
+
+            ;
+    }
+
     // /**
     //  * @return Page[] Returns an array of Page objects
     //  */
