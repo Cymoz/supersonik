@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DefaultController extends AbstractController
 {
@@ -26,7 +27,7 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', $context);
     }
 
-    public function contact(Request $request, \Swift_Mailer $mailer): Response
+    public function contact(Request $request, \Swift_Mailer $mailer, TranslatorInterface $translator): Response
     {
         $context = [];
 
@@ -48,12 +49,20 @@ class DefaultController extends AbstractController
                     ->setSender($sender)
                     ->setReplyTo($replyTo)
                     ->setBody(
-                        $this->render('mail/contact_form.html.twig',
+                        $this->render('mail/contact_email.html.twig',
                             array('contact' => $contact)
                         ),
                         'text/html'
                     );
-              $mailer->send($message);
+                $result = $mailer->send($message);
+
+                if ($result) {
+                    $this->addFlash('ContactSuccess', $translator->trans('contact.form.success',[], 'form'));
+
+                } else
+                    $this->addFlash('ContactError', $translator->trans('contact.form.error', [], 'form'));
+
+                return $this->redirect($request->getUri());
             }
         }
 

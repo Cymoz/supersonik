@@ -2,7 +2,20 @@
 {% block title %}Hello DefaultController!{% endblock %}
 {% block body %}
 
+
     <div class="container">
+        {% for message in app.flashes('ContactSuccess') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% if not form.vars.valid %}
+            <div class="alert alert-danger">
+                {{ 'Erreur dans le formulaire'|trans([],'form') }}
+            </div>
+        {% endif %}
+
         {{ form_start(form) }}
         <div class="row">
 
