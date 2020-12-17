@@ -6,6 +6,7 @@ use App\Form\ContactType;
 use App\Model\ContactModel;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -25,13 +26,36 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', $context);
     }
 
-    public function contact(): Response
+    public function contact(Request $request, \Swift_Mailer $mailer): Response
     {
         $context = [];
 
         $contact = new ContactModel();
 
         $form = $this->createForm(ContactType::class, $contact);
+
+        if ($request->getMethod() === Request::METHOD_POST) {
+            $form->handleRequest($request);
+            $contact = $form->getData();
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $receiver = array('godefroy@admin.fr');
+                $sender = 'godefroy@admin.fr';
+                $replyTo = $contact->getEmail();
+
+                $message = (new \Swift_Message('Contact depuis le moyen-age'))
+                    ->setTo($receiver)
+                    ->setSender($sender)
+                    ->setReplyTo($replyTo)
+                    ->setBody(
+                        $this->render('mail/contact_form.html.twig',
+                            array('contact' => $contact)
+                        ),
+                        'text/html'
+                    );
+              $mailer->send($message);
+            }
+        }
 
         $context['form'] = $form->createView();
 

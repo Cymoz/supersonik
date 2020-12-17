@@ -58,8 +58,7 @@ class ContactType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ContactModel::class,
-            'method' => Request::METHOD_POST
+            'data_class' => ContactModel::class
         ]);
     }
 }

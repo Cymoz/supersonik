@@ -16,7 +16,8 @@ class ContactModel
     public $name;
     /**
      * @var string
-     * @Assert\Email(message="L'email est obligatoire")
+     * @Assert\NotBlank(message="L'email est obligatoire")
+     * @Assert\Email(message="L'email n'a pas le bon format")
      */
     public $email;
     /**

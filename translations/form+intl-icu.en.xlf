@@ -29,6 +29,10 @@
         <source>contact.form.placeholder.message</source>
         <target>Type your message here</target>
       </trans-unit>
+      <trans-unit id="eQdSCfK" resname="Envoyer">
+        <source>Envoyer</source>
+        <target>Send</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
