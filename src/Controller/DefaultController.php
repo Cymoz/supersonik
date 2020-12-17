@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
+use App\Model\ContactModel;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +27,15 @@ class DefaultController extends AbstractController
 
     public function contact(): Response
     {
-        $context = [
-            'contact' => 'contact',
-        ];
+        $context = [];
+
+        $contact = new ContactModel();
+
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $context['form'] = $form->createView();
+
+
         return $this->render('default/contact.html.twig', $context);
     }
 
