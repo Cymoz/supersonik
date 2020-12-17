@@ -29,7 +29,7 @@ class ExceptionListener
         if($exception->getCode() == 404){
 
             $receiver = ['mounir.senaoui@gmail.com'];
-            $info = 'Test de contenu';
+            $info = 'Test de contenu' .$event->getRequest()->getPathInfo();
 
             $message = (new \Swift_Message('404 depuis le site'))
                 ->setTo($receiver)

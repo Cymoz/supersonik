@@ -15,3 +15,6 @@ page:
   controller: App\Controller\DefaultController::page
   requirements:
     slug: '^(?!admin).+'
+    #slug ne commençant PAS par admin. Donc si le slug ne commence pas par admin ALORS le point,
+    # il faut n'importe quel caractère au moins 1 fois
+

@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
@@ -38,9 +37,7 @@ class DefaultController extends AbstractController
 
     public function page(Request $request, EntityManagerInterface $em, $slug){
         $tabLocales = $this->getParameter("locales");
-
         $tabTmp = explode("/", $slug);
-
         if(in_array($tabTmp[0], $tabLocales)){
             /*unset($tabTmp[0]);
             $slug = implode("/", $tabTmp);*/
