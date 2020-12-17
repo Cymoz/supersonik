@@ -26,6 +26,8 @@ class WidgetManager
 
         foreach ($out[0] as $widget){
             //widget = [members nb=2]
+            $tabParams = [];
+            $tabParams['widgetName'] = $widget;
             $widget = str_replace(array('[',']'), '', $widget);
             //widget = members nb=2
             $tabWidget = explode(" ", $widget);
@@ -38,7 +40,7 @@ class WidgetManager
             array_shift($tabWidget);
             //tabWidget[0] = limit=2
             //create params array
-            $tabParams = [];
+
             foreach ($tabWidget as $params){
                 //0 limit=2
                 //1 start=1
@@ -57,13 +59,13 @@ class WidgetManager
 
         $limit = isset($tabParams['limit']) ? $tabParams['limit'] : 3;
 
-        $results = $this->entityManager->getRepository(Member::class)->findBy([],[], $limit);
+        $members = $this->entityManager->getRepository(Member::class)->findBy([],[], $limit);
 
-        $context = ['members' => $results];
+        $context = ['members' => $members];
 
         $widgetMembers = $this->twig->render('widget/members.html.twig', $context);
 
-        $content = str_replace(array('[members',']'), array($widgetMembers, ''), $content);
+        $content = str_replace($tabParams['widgetName'], $widgetMembers, $content);
 
         return $content;
     }
