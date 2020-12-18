@@ -6,7 +6,7 @@ contact:
   path:
     fr: /nous-contacter
     en: /contact-us
-  controller: App\Controller\DefaultController::index
+  controller: App\Controller\DefaultController::contact
 
 page:
   path:

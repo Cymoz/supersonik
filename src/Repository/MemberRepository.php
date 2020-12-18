@@ -26,6 +26,13 @@ class MemberRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findMembersWithEmail(){
+        return $this->createQueryBuilder('m')
+            ->where('m.email IS NOT NULL')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Member[] Returns an array of Member objects
     //  */

@@ -51,6 +51,16 @@ class Member implements TranslatableInterface
 
     private $oldImage;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $job;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,5 +119,42 @@ class Member implements TranslatableInterface
     {
         return $this->firstName;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     * @return Member
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param mixed $job
+     * @return Member
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+        return $this;
+    }
+
 
 }

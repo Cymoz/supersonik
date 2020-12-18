@@ -88,14 +88,14 @@
     </nav>
 
 {% endblock %}
-<div class="container">
-    <div class="row">
-        {% block body %}
 
-        {% endblock %}
-    </div>
-</div>
+{% block body %}
 
+{% endblock %}
+
+{% block body %}
+    Voila voila
+{% endblock %}
 
 {% block javascripts %}
 {% endblock %}

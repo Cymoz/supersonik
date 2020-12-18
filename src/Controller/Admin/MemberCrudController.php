@@ -73,6 +73,7 @@ class MemberCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('firstname'),
             TextField::new('lastname'),
+            TextField::new('email'),
 
             ImageField::new('imageName', 'Photo')
                 ->setUploadDir('public' . $this->params->get('app.path.member_images'))
@@ -97,6 +98,8 @@ class MemberCrudController extends AbstractCrudController
 
 
     }
+
+
 
 
 

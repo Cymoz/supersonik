@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="OJO27vq" resname="contact.form.label.name">
+        <source>contact.form.label.name</source>
+        <target>Your name</target>
+      </trans-unit>
+      <trans-unit id="fUhB3_4" resname="contact.form.label.email">
+        <source>contact.form.label.email</source>
+        <target>Your email</target>
+      </trans-unit>
+      <trans-unit id="9mEfkvh" resname="contact.form.label.message">
+        <source>contact.form.label.message</source>
+        <target>Your message</target>
+      </trans-unit>
+      <trans-unit id="eQdSCfK" resname="Envoyer">
+        <source>Envoyer</source>
+        <target>Send</target>
+      </trans-unit>
+      <trans-unit id="C8h41xq" resname="Votre message a bien été envoyé">
+        <source>Votre message a bien été envoyé</source>
+        <target>Good !</target>
+      </trans-unit>
+      <trans-unit id="zYr8kIJ" resname="PROBLEME !">
+        <source>PROBLEME !</source>
+        <target>Not good...</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

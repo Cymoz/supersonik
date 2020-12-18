@@ -2,8 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
+use App\Entity\Customer;
+use App\Entity\Media;
 use App\Entity\Member;
 use App\Entity\Page;
+use App\Entity\Project;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -32,7 +36,10 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class),
             MenuItem::linkToCrud('Équipe', 'fa fa-user', Member::class),
-            MenuItem::linkToCrud('Pages', 'fa fa-user', Page::class)
+            MenuItem::linkToCrud('Catégories', 'fa fa-user', Category::class),
+            MenuItem::linkToCrud('Customers', 'fa fa-user', Customer::class),
+            MenuItem::linkToCrud('Médias', 'fa fa-user', Media::class),
+            MenuItem::linkToCrud('Projets', 'fa fa-user', Project::class),
         ];
         // yield MenuItem::linkToCrud('The Label', 'icon class', EntityClass::class);
     }

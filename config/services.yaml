@@ -5,9 +5,12 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     app.path.member_images: /uploads/images/members
+    app.path.customer_images: /uploads/images/customers
+    app.path.media_images: /uploads/images/medias
     locales:
         - fr
         - en
+    google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
 
 services:
     # default configuration for services in *this* file
