@@ -19,15 +19,21 @@ class DefaultController extends AbstractController
 
     public function index(): Response
     {
+
+
+
+
         $em = $this->getDoctrine()->getManager();
 
         $members = $em->getRepository('App:Member')->findAll();
+        $projects = $em->getRepository('App:Project')->findAllProjects();
         /**@var \App\Entity\Member $member */
 
 
         $context = [
             'controller_name' => 'DefaultController',
-            'members' => $members
+            'members' => $members,
+            'projects' => $projects
         ];
 
         return $this->render('default/index.html.twig', $context);
@@ -41,7 +47,7 @@ class DefaultController extends AbstractController
      */
     public function contact(ContactMailer $mailer, Request $request, TranslatorInterface $translator): Response
     {
-        
+
         $contact = new ContactModel();
         $formOptions = [
             'method' => Request::METHOD_POST,

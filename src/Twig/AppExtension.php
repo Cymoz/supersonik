@@ -17,7 +17,8 @@ class AppExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('widget', [ApppRuntime::class, 'widget'])
+            new TwigFilter('widget', [ApppRuntime::class, 'widget']),
+            new TwigFilter('projectFilter', [ApppRuntime::class, 'projectFilter']),
         ];
     }
 }

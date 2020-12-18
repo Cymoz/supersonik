@@ -28,7 +28,7 @@ class ApppRuntime implements RuntimeExtensionInterface
     }
 
     public function pageUrl($context, $alias){
-
+        dump($context);
         $page = $this->em->getRepository('App:Page')->findOneBy(["alias" => $alias]);
         if(!$page){
             return "#".$alias;
@@ -43,5 +43,9 @@ class ApppRuntime implements RuntimeExtensionInterface
 
         $content = $this->widgetManager->applyWidgets($content);
         return $content;
+    }
+
+    public function projectFilter($content,$nbDisplay = null,$displayCategories = true){
+        
     }
 }

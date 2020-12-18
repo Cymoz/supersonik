@@ -23,19 +23,9 @@ class Media
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="media")
-     */
-    private $projects;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
 
     /**
      * @Vich\UploadableField(mapping="media_images", fileNameProperty="image")
@@ -46,7 +36,17 @@ class Media
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $alias;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Project::class, mappedBy="media")
+     */
+    private $projects;
 
     public function __construct()
     {
@@ -56,33 +56,6 @@ class Media
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection|Project[]
-     */
-    public function getProjects(): Collection
-    {
-        return $this->projects;
-    }
-
-    public function addProject(Project $project): self
-    {
-        if (!$this->projects->contains($project)) {
-            $this->projects[] = $project;
-            $project->addMedium($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProject(Project $project): self
-    {
-        if ($this->projects->removeElement($project)) {
-            $project->removeMedium($this);
-        }
-
-        return $this;
     }
 
     public function getImage(): ?string
@@ -122,7 +95,37 @@ class Media
     }
 
     /**
-     * @return File
+     * @return Collection|Project[]
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): self
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects[] = $project;
+            $project->setMedia($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): self
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getMedia() === $this) {
+                $project->setMedia(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
      */
     public function getImageFile(): ?File
     {
@@ -130,8 +133,8 @@ class Media
     }
 
     /**
-     * @param File|null $imageFile
-     * @return Media
+     * @param File $imageFile
+     * @return Media|null
      */
     public function setImageFile(?File $imageFile): Media
     {
@@ -142,5 +145,4 @@ class Media
     public function __toString(){
         return $this->name;
     }
-
 }

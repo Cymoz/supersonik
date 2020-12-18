@@ -30,9 +30,6 @@ class ProjectCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            AssociationField::new('customer', 'Customer'),
-            AssociationField::new('category', 'Categories'),
-            AssociationField::new('media', 'Médias'),
             TranslationField::new('translations', "Label")
                 ->setRequired(true)
                 ->hideOnIndex()

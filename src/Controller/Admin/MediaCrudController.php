@@ -11,6 +11,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class MediaCrudController extends AbstractCrudController
 {
+
     /**
      * @var ParameterBagInterface
      */
@@ -21,7 +22,6 @@ class MediaCrudController extends AbstractCrudController
         $this->params = $params;
     }
 
-
     public static function getEntityFqcn(): string
     {
         return Media::class;
@@ -31,10 +31,10 @@ class MediaCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            AssociationField::new('project', 'Projets'),
+            AssociationField::new('projects', 'Projets'),
             TextField::new('name'),
             TextField::new('alias'),
-            ImageField::new('image', 'Image')
+            ImageField::new('image', 'Photo')
                 ->setUploadDir('public' . $this->params->get('app.path.media_images'))
                 //->setFormType(VichImageType::class)
                 ->setBasePath('public' . $this->params->get('app.path.media_images'))

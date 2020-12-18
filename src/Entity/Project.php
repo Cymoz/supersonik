@@ -32,21 +32,21 @@ class Project implements TranslatableInterface
      */
     private $category;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Media::class, inversedBy="projects")
-     */
-    private $media;
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Media::class, inversedBy="projects")
+     */
+    private $media;
+
     public function __construct()
     {
         $this->customer = new ArrayCollection();
         $this->category = new ArrayCollection();
-        $this->media = new ArrayCollection();
         $this->date = new \DateTime("now");
     }
 
@@ -114,30 +114,7 @@ class Project implements TranslatableInterface
 
         return $this;
     }
-
-    /**
-     * @return Collection|Media[]
-     */
-    public function getMedia(): Collection
-    {
-        return $this->media;
-    }
-
-    public function addMedium(Media $medium): self
-    {
-        if (!$this->media->contains($medium)) {
-            $this->media[] = $medium;
-        }
-
-        return $this;
-    }
-
-    public function removeMedium(Media $medium): self
-    {
-        $this->media->removeElement($medium);
-
-        return $this;
-    }
+    
 
     public function getDate(): ?\DateTimeInterface
     {
@@ -151,5 +128,24 @@ class Project implements TranslatableInterface
         return $this;
     }
 
+    public function getMedia(): ?Media
+    {
+        return $this->media;
+    }
 
+    public function setMedia(?Media $media): self
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->translations->current()->getName();
+    }
+
+    public function __call($method, $arguments){
+        return $this->proxyCurrentLocaleTranslation($method,$arguments);
+    }
 }

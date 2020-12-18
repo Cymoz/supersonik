@@ -19,6 +19,14 @@ class ProjectRepository extends ServiceEntityRepository
         parent::__construct($registry, Project::class);
     }
 
+    public function findAllProjects(){
+        return $this->createQueryBuilder('p')
+            ->join('p.translations', 'pt')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */

@@ -41,9 +41,4 @@ class MemberTranslation implements TranslationInterface
 
         return $this;
     }
-
-    public function getTest(): ?string
-    {
-        return $this->test;
-    }
 }
