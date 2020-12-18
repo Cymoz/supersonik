@@ -27,6 +27,17 @@ class ProjectRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findProjectsByFilters($nbProjects,$displayCategories){
+            return $this->createQueryBuilder('p')
+                ->setMaxResults($nbProjects)
+                ->getQuery()
+                ->getResult()
+                ;
+
+
+
+    }
+
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */

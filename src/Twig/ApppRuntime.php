@@ -45,7 +45,10 @@ class ApppRuntime implements RuntimeExtensionInterface
         return $content;
     }
 
-    public function projectFilter($content,$nbDisplay = null,$displayCategories = true){
-        
+    public function projectFilter($content,$nbDisplay = null,$displayCategories = false){
+        $projects = $this->em->getRepository('App:Project')->findProjectsByFilters($nbDisplay,$displayCategories);
+
+        return $projects;
+
     }
 }

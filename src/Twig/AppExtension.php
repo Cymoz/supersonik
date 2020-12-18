@@ -11,6 +11,7 @@ class AppExtension extends AbstractExtension
     {
         return [
             new TwigFunction('getPageUrl',[ApppRuntime::class,'pageUrl'],['needs_context' => true])
+
         ];
     }
 

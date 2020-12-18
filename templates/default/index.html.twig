@@ -22,9 +22,13 @@
 
         <h2>Liste des projets</h2>
         <div class="row">
-            {% for project in projects|projectFilter %}
+            {% for project in projects|projectFilter(1) %}
                 <div class="col-3">
-                    {{ project.name}}
+                    <p>{{ project.name}}</p>
+                    {% for category in project.category %}
+                        <p>{{ category.name }}</p>
+                    {% endfor %}
+
                 </div>
             {% endfor %}
         </div>
