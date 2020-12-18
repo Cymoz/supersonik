@@ -78,9 +78,9 @@ class DefaultController extends AbstractController
                 $result = $mailer->send($message);
 
                 if ($result) {
-                    $this->addFlash('ContactSuccess', $translator->trans('Votre message a bien été envoyé', [], 'form'));
+                    $this->addFlash('success', $translator->trans('Votre message a bien été envoyé', [], 'form'));
                 } else {
-                    $this->addFlash('ContactError', $translator->trans('Votre message n\'a pu être envoyé', [], 'form'));
+                    $this->addFlash('danger', $translator->trans('Votre message n\'a pu être envoyé', [], 'form'));
                 }
 
                 /*$contact = new ContactModel();

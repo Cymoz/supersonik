@@ -50,6 +50,16 @@ class Member implements TranslatableInterface
      */
     private $imageName;
 
+    /**
+     * @ORM\Column(type="string", length=180, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $poste;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,5 +132,29 @@ class Member implements TranslatableInterface
     public function __toString()
     {
         return $this->firstname." ".$this->lastname;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPoste(): ?string
+    {
+        return $this->poste;
+    }
+
+    public function setPoste(string $poste): self
+    {
+        $this->poste = $poste;
+
+        return $this;
     }
 }

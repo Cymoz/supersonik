@@ -26,6 +26,11 @@ class ContactModel
     public $message;
 
     /**
+     * 
+     */
+    public $recaptcha;
+
+    /**
      * Get the value of name
      *
      * @return  string
@@ -93,6 +98,26 @@ class ContactModel
     public function setMessage(string $message)
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of recaptcha
+     */ 
+    public function getRecaptcha()
+    {
+        return $this->recaptcha;
+    }
+
+    /**
+     * Set the value of recaptcha
+     *
+     * @return  self
+     */ 
+    public function setRecaptcha($recaptcha)
+    {
+        $this->recaptcha = $recaptcha;
 
         return $this;
     }

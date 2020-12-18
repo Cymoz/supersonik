@@ -1,0 +1,4 @@
+ewz_recaptcha:
+    version: 3
+    enabled: true
+    hide_badge: false
