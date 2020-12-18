@@ -28,11 +28,15 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <div class="col">
-  <ul>
   {% for member in members %}
-    <li>{{ member.firstname ~ ' ' ~ member.lastname }}</li>
+    <div class="col-4">
+      <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}" alt="{{ member }}" />
+      <br>
+      {{ member.firstname ~ ' ' ~ member.lastname }}
+      <br>
+      {{ member.description|raw }}
+    </div>
   {% endfor %}
-  </ul>
 </div>
 {% endblock %}
 

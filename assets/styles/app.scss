@@ -3,12 +3,20 @@
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/buttons';
 @import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/alert';
 @import 'variables';
 
 * {
     font-family: $font;
 }
 
-h1, .h1 {
+.my-color {
     color: $primary-color;
+}
+
+h1 {
+    color: #ffce00;
 }

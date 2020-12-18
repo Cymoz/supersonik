@@ -1,8 +1,11 @@
-app_security:
-    resource: "routes/security.yaml"
+front:
+    resource: 'routes/front.yaml'
+    prefix:
+        fr: '/'
+        en: '/en/'
 
-app_front:
-    resource: "routes/front.yaml"
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
 
 app_dashboard:
     prefix: "/admin"

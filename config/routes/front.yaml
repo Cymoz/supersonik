@@ -2,6 +2,16 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
+contact:
+    path:
+        fr: /nous-contacter
+        en: /contact-us
+    controller: App\Controller\DefaultController::contact
+
 page:
-    path: page
+    path:
+        en: /{slug}
+        fr: /{slug}
     controller: App\Controller\DefaultController::page
+    requirements:
+        slug: '^(?!admin).*'

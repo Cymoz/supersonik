@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block meta_title %}{{ page.title }}{% endblock %}
+{% block meta_description %}{{ page.description }}{% endblock %}
+{% block meta_keywords %}{{ page.keywords }}{% endblock %}
+
+{% block body %}
+    {{ page.content|widget|raw }}
+{% endblock %}
