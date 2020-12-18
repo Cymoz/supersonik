@@ -34,10 +34,10 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Équipe', 'fa fa-user', Member::class),
             MenuItem::linkToCrud('Pages', 'fa fa-user', Page::class)
         ];
-        // yield MenuItem::linkToCrud('The Label', 'icon class', EntityClass::class);
+
     }
 
-    public function configureAssets(): Assets 
+    public function configureAssets(): Assets
     {
         return Assets::new()->addCssFile('build/admin.css');
     }

@@ -40,7 +40,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $this->em = $em;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             BeforeEntityDeletedEvent::class => ['imageDelete'],

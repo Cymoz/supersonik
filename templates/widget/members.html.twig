@@ -1,0 +1,9 @@
+<p>
+    Liste des membres
+
+    {% for member in members %}
+        Hello there {{ member.firstName }}
+        <img src="{{ vich_uploader_asset(member, 'imageFile') }}" class="img-fluid">
+    {% endfor %}
+
+</p>

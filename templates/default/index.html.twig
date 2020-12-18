@@ -6,27 +6,20 @@
 
 
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-            locale : {{ app.request.locale }}<br>
 
-            </div>
+        locale: {{ app.request.locale }}
+        <h1>Ici la liste des membres:</h1>
 
-            {% for member in members %}
+        {% for member in members %}
+            {% if member.imageName %}
+                <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}"
+                     alt="{{ member }}"/>
+            {% endif %}
 
-                <div class="col-4">
-                    {% set runtimeConfig = {"thumbnail": {"size": [50, 50] }} %}
-
-                    <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}"
-                         alt="{{ member }}" />
-
-                    <br>
-                    {{ member.firstName }} {{ member.lastName }}
-                    <br>
-                    {{ member.description|raw}}
-                </div>
-            {% endfor %}
-        </div>
+            <li>{{ member.firstName }} {{ member.lastName }}</li>
+            {{ member.description|raw }}
+        {% endfor %}
 
     </div>
+
 {% endblock %}

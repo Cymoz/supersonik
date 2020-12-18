@@ -1,0 +1,18 @@
+{% extends 'mail/base.html.twig' %}
+
+{% block body %}
+    <p>
+        Contenu du message:
+    </p>
+    <p>
+        de la part de: {{ contact.email }}
+        e-mail: {{ contact.email }}
+    </p>
+
+    <p>
+        Contenu du message:
+    </p>
+    <p>
+        {{ contact.message }}
+    </p>
+{% endblock %}

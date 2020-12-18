@@ -1,54 +1,46 @@
 <?php
 
+
 namespace App\Twig;
 
-use App\Repository\PageRepository;
+
+use App\Manager\WidgetManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 use Twig\Extension\RuntimeExtensionInterface;
-use App\Service\WidgetManager;
 
 class AppRuntime implements RuntimeExtensionInterface
 {
-    protected $entityManager;
+    protected $em;
     protected $routingExtension;
     protected $twig;
-    protected $widgetManager;
-    protected $repository;
+    private $widgetManager;
 
-    public function __construct(EntityManagerInterface $entityManager, RouterInterface $routingExtension, Environment $twig, WidgetManager $widgetManager, PageRepository $repository)
+    public function __construct(EntityManagerInterface $entityManager, RouterInterface $routingExtension, Environment $twig, WidgetManager $widgetManager)
     {
-        $this->entityManager = $entityManager;
+        $this->em = $entityManager;
         $this->routingExtension = $routingExtension;
         $this->twig = $twig;
         $this->widgetManager = $widgetManager;
-        $this->repository = $repository;
     }
-    
+
     public function widget($content)
     {
-       
         $content = $this->widgetManager->applyWidgets($content);
-
         return $content;
-
     }
 
-    public function pageUrl($context, $alias)
+    public function pageUrl($context, $alias): string
     {
-        //dd($this->repository);
-        /**@var $page **/
+        $page = $this->em->getRepository('App:Page')->findOneBy(['alias' => $alias]);
 
-        //$page = $this->repository->findOneBy(['alias'=>$alias]);
-        $page = $this->entityManager->getRepository('App:Page')->findOneBy(['alias'=>$alias]);
-        if (!$page){
-            return "#".$alias;
+        if (!$page) {
+            return "#" . $alias;
         }
 
         $locale = $context['app']->getRequest()->getLocale();
 
-        return $this->routingExtension->generate('page', array('_locale'=>$locale, 'slug'=>$page->getSlug()));
+        return $this->routingExtension->generate('page', ['_locale' => $locale, 'slug' => $page->getSlug()]);
     }
 }
-

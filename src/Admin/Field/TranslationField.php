@@ -11,18 +11,19 @@ use phpDocumentor\Reflection\Types\Self_;
 class TranslationField implements FieldInterface
 {
     use FieldTrait;
-    
-    public static function new(string $propertyName, ?string $label = null, $fieldsConfig = []):self
+
+
+    public static function new(string $propertyName, ?string $label = null, $fieldConfig = []):self
     {
-        return(new self())
+        return (new self())
             ->setProperty($propertyName)
             ->setLabel($label)
             ->setFormType(TranslationsType::class)
             ->setFormTypeOptions(
                 [
                     'default_locale' => '%locale%',
-                    'fields' => $fieldsConfig
+                    'fields' => $fieldConfig
                 ]
-                );
+            );
     }
 }

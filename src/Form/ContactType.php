@@ -20,6 +20,11 @@ class ContactType extends AbstractType
      */
     private $translator;
 
+
+    /**
+     * ContactType constructor.
+     * @param Translator $translator
+     */
     public function __construct(TranslatorInterface $translator)
     {
         $this->translator = $translator;
@@ -28,32 +33,32 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, array(
-                'label' => $this->translator->trans('contact.form.label.name', [], 'form'),
-                'attr' => array(
-                    'placeholder' => $this->translator->trans('contact.form.placeholder.name', [], 'form')
-                )
-            ))
-            ->add('email', EmailType::class, array(
+            ->add('name', TextType::class,
+                [
+                    'label' => $this->translator->trans('contact.form.label.name', [], 'form'),
+                    'attr' => [
+                        'placeholder' => $this->translator->trans('contact.form.placeholder.name', [], 'form')
+                    ]
+                ])
+            ->add('email', EmailType::class, [
                 'label' => $this->translator->trans('contact.form.label.email', [], 'form'),
-                'attr' => array(
+                'attr' => [
                     'placeholder' => $this->translator->trans('contact.form.placeholder.email', [], 'form')
-                )
-            ))
-            ->add('message', TextareaType::class, array(
-                'label' => $this->translator->trans('contact.form.placeholder.message', [], 'form'),
-                'attr' => array(
-                    'placeholder' => $this->translator->trans('contact.form.placeholder.message', [], 'form')
-                )
-            ))
-        ;
+                ]
+            ])
+            ->add('message', TextareaType::class,
+                [
+                    'label' => $this->translator->trans('contact.form.label.message', [], 'form'),
+                    'attr' => [
+                        'placeholder' => $this->translator->trans('contact.form.placeholder.message', [], 'form')
+                    ]
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ContactModel::class,
-            'method' => Request::METHOD_POST
+            'data_class' => ContactModel::class
         ]);
     }
 }

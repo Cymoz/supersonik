@@ -10,22 +10,21 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class MemberCrudController extends AbstractCrudController
 {
     private $params;
-    private $cacheManager;
-    private $uploaderHelper;
 
-    public function __construct(ParameterBagInterface $params, CacheManager $cacheManager, UploaderHelper $uploaderHelper) {
+    /**
+     * MemberCrudController constructor.
+     * @param $params
+     */
+    public function __construct(ParameterBagInterface $params)
+    {
         $this->params = $params;
-        $this->cacheManager = $cacheManager;
-        $this->uploaderHelper = $uploaderHelper;
     }
+
 
     public static function getEntityFqcn(): string
     {
@@ -43,20 +42,9 @@ class MemberCrudController extends AbstractCrudController
                 ]
             );
     }
-    
+
     public function configureFields(string $pageName): iterable
     {
-        $imageFile = ImageField::new('imageFile', 'Photo')
-            ->setUploadDir('public' . $this->params->get('app.path.member_images'))
-            ->setTemplatePath('admin/vich_uploader_image.html.twig')
-            ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]')
-        ;
-        $imageName = ImageField::new('imageName', 'Photo')
-            ->setUploadDir('public' . $this->params->get('app.path.member_images'))
-            ->setTemplatePath('admin/vich_uploader_image.html.twig')
-            ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]')
-        ;
-
         $fieldsConfig = [
             'description' => [
                 'field_type' => CKEditorType::class,
@@ -93,7 +81,5 @@ class MemberCrudController extends AbstractCrudController
 
 
     }
-
-
 
 }

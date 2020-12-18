@@ -21,7 +21,7 @@ class MemberTranslation implements TranslationInterface
     private $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -35,7 +35,7 @@ class MemberTranslation implements TranslationInterface
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 

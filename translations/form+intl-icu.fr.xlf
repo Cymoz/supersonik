@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="OJO27vq" resname="contact.form.label.name">
+        <source>contact.form.label.name</source>
+        <target>Votre nom</target>
+      </trans-unit>
+      <trans-unit id="lwKqYoQ" resname="contact.form.placeholder.name">
+        <source>contact.form.placeholder.name</source>
+        <target>Ecrivez votre nom</target>
+      </trans-unit>
+      <trans-unit id="fUhB3_4" resname="contact.form.label.email">
+        <source>contact.form.label.email</source>
+        <target>Votre email</target>
+      </trans-unit>
+      <trans-unit id="lS7EOcU" resname="contact.form.placeholder.email">
+        <source>contact.form.placeholder.email</source>
+        <target>Ecrivez votre email</target>
+      </trans-unit>
+      <trans-unit id="9mEfkvh" resname="contact.form.label.message">
+        <source>contact.form.label.message</source>
+        <target>Votre message</target>
+      </trans-unit>
+      <trans-unit id="UFmf9nM" resname="contact.form.placeholder.message">
+        <source>contact.form.placeholder.message</source>
+        <target>Ecrivez votre message</target>
+      </trans-unit>
+      <trans-unit id="eQdSCfK" resname="Envoyer">
+        <source>Envoyer</source>
+        <target>Envoyer</target>
+      </trans-unit>
+      <trans-unit id="zRGEmNm" resname="contact.form.success">
+        <source>contact.form.success</source>
+        <target>Votre message a bien été envoyé</target>
+      </trans-unit>
+      <trans-unit id="aririzH" resname="contact.form.error">
+        <source>contact.form.error</source>
+        <target>Votre message n'a pas pu être envoyé</target>
+      </trans-unit>
+      <trans-unit id="CE1z4L9" resname="Erreur dans le formulaire">
+        <source>Erreur dans le formulaire</source>
+        <target>Erreur dans le formulaire</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

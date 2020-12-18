@@ -7,45 +7,35 @@ use Twig\Environment;
 
 class ExceptionListener
 {
-
-    /**
-     * @var Environment
-     */
     private $twig;
-    /**
-     * @var \Swift_Mailer
-     */
     private $mailer;
-
-    public function __construct(Environment $twig, \Swift_Mailer $mailer){
-
+    public function __construct(Environment $twig, \Swift_Mailer $mailer)
+    {
         $this->twig = $twig;
         $this->mailer = $mailer;
     }
-
-    public function onKernelException( ExceptionEvent $event){
+    public function onKernelException(ExceptionEvent $event)
+    {
         $exception = $event->getThrowable();
+        if ($exception->getCode() == 404) {
+            $receiver = array('tarik.graoui@gmailcom');
+            $info = 'Page non trouvé: ' . $event->getRequest()->getPathInfo();
 
-        if($exception->getCode() == 404){
-
-            $receiver = ['tarik.graoui@gmail.com'];
-            $info = 'Test de contenu';
-
-            $message = (new \Swift_Message('404 depuis le site'))
+            $message = (new \Swift_Message('404 from website'))
                 ->setTo($receiver)
-                ->setSender('tarik.graoui@gmail.com')
-                ->setReplyTo('admin@admin.fr')
+                ->setSender('leo@kilkenny.fr')
+                ->setReplyTo('tarik.graoui@gmail.com')
                 ->setBody(
-                    $this->twig->render('mail/admin_404.html.twig', [
-                        'info' => $info
-                    ]), 'text/html'
+                    $this->twig->render('mail/admin_404.html.twig',
+                        array('info' => $info)
+                    ),
+                    'text/html'
                 );
-
             $this->mailer->send($message);
 
-            $reponse = new Response($this->twig->render('exception/404.html.twig'), $exception->getCode());
+            $response = new Response($this->twig->render('exception/404.html.twig'), $exception->getCode());
 
-            $event->setResponse($reponse);
+            $event->setResponse($response);
         }
     }
 }

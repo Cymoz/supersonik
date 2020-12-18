@@ -2,9 +2,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title> {% block meta_title %}Welcome!{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {% if page is defined %}
+        {% for link in page.translations %}
+            <link rel="alternate" hreflang="{{ link.locale }}"
+                  href="{{ app.request.schemeAndHttpHost }}{{ path(app.request.attributes.get('_route'), {'_locale':link.locale, 'slug':link.slug}) }}">
+        {% else %}
+            {% for locale in LOCALES %}
+                <link rel="alternate" hreflang="{{ locale }}"
+                      href="{{ app.request.schemeAndHttpHost }}{{ path(app.request.attributes.get('_route'),
+                          app.request.attributes.get('_route_params')|merge({'_locale':locale})) }}">
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
 
     {% if page is defined %}
         {% for link in page.translations %}

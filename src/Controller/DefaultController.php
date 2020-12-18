@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Page;
 use App\Form\ContactType;
 use App\Model\ContactModel;
 use Doctrine\ORM\EntityManagerInterface;
@@ -10,16 +9,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DefaultController extends AbstractController
 {
     public function index(): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-        $members = $entityManager->getRepository('App:Member')->findAll();
+        $members = $em->getRepository('App:Member')->findAll();
 
         $context = [
             'controller_name' => 'DefaultController',
@@ -32,75 +30,66 @@ class DefaultController extends AbstractController
     public function contact(Request $request, \Swift_Mailer $mailer, TranslatorInterface $translator): Response
     {
         $context = [];
-        
+
         $contact = new ContactModel();
-        $formOptions = [
-            // 'method' => Request::METHOD_POST
-        ];
 
-        $form = $this->createForm(ContactType::class, $contact, $formOptions);
+        $form = $this->createForm(ContactType::class, $contact);
 
-        if($request->getMethod() === Request::METHOD_POST)
-        {
+        if ($request->getMethod() === Request::METHOD_POST) {
             $form->handleRequest($request);
-
-            /**@var ContactModel $contact */
             $contact = $form->getData();
 
-            if( $form->isSubmitted() && $form->isValid())
-            {
-                $receiver = ['tarik.graoui@gmail.com'];
-                $sender = array('tarik.graoui@gmail.com');
+            if ($form->isSubmitted() && $form->isValid()) {
+                $receiver = array('admin@admin.fr');
+                $sender = 'admin@admin.fr';
                 $replyTo = $contact->getEmail();
 
-                $message = (new \Swift_Message('404 depuis le site'))
+                $message = (new \Swift_Message('Form Contact Messsage'))
                     ->setTo($receiver)
                     ->setSender($sender)
                     ->setReplyTo($replyTo)
                     ->setBody(
-                        $this-->render('mail/contact_form.html.twig', [
-                            'contact' => $contact
-                        ]), 
+                        $this->render('mail/contact_email.html.twig',
+                            array('contact' => $contact)
+                        ),
                         'text/html'
                     );
-
                 $result = $mailer->send($message);
 
-                if ($result){
-                    $this->addFlash('ContactSuccess', $translator->trans('Votre message a bien été envoyé'));
-                    $this->addFlash('ContactSuccess', $translator->trans('Nous y répondrons dès que possible'));
-                }else {
-                    $this->addFlash('ContactErro', $translator->trans('Votre n\'a pas pu être envoyé'));
-                }
+                if ($result) {
+                    $this->addFlash('ContactSuccess', $translator->trans('contact.form.success',[], 'form'));
 
-                return $this->redirectToRoute('contact');
+                } else
+                    $this->addFlash('ContactError', $translator->trans('contact.form.error', [], 'form'));
+
+                return $this->redirect($request->getUri());
             }
         }
 
         $context['form'] = $form->createView();
 
+
         return $this->render('default/contact.html.twig', $context);
     }
 
-    public function page(Request $request, EntityManagerInterface $entityManager, $slug)
+    public function page($slug, EntityManagerInterface $entityManager): Response
     {
-        $tabLocales = $this->getParameter("locales");
+
+        $tabLocales = $this->getParameter('locales');
 
         $tabTmp = explode("/", $slug);
 
-        if(in_array($tabTmp[0], $tabLocales)){
-            /*unset($tabTmp[0]);
-            $slug = implode("/", $tabTmp);*/
-            $slug = substr($slug, 3, strlen($slug));
+        if (in_array($tabTmp[0], $tabLocales)) {
+            unset($tabTmp[0]);
+            $slug = implode("/", $tabTmp);
+
         }
 
-        /**
-         * @var $page Page
-         */
-        $page = $entityManager->getRepository('App:Page')->getOneBySlug('test');
+        $page = $entityManager->getRepository('App:Page')->getOneBySlug($slug);
 
-        if(!$page){
-            throw new NotFoundHttpException("404",null,404);
+
+        if (!$page) {
+            throw new NotFoundHttpException('404', null, 404);
         }
 
         $template = $page->getTemplate() ?: 'page/default.html.twig';

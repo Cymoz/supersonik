@@ -8,6 +8,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -43,7 +44,7 @@ class Member implements TranslatableInterface
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * @var string|null
      */
     private $imageName;
@@ -77,7 +78,7 @@ class Member implements TranslatableInterface
         return $this;
     }
     /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @param File|UploadedFile|null $imageFile
      */
     public function setImageFile(?File $imageFile = null): void
     {

@@ -1,10 +1,9 @@
-{% extends 'base.html.twig' %}
-
-{% block title %} {{ page.title }} {% endblock %}
+{% extends "base.html.twig" %}
+{% block meta_title %} {{ page.title }} {% endblock %}
 {% block meta_description %} {{ page.description }} {% endblock %}
 {% block meta_keyword %} {{ page.keyword }} {% endblock %}
 
 
 {% block body %}
-    {{page.content|widget|raw}}
+    {{ page.content|widget|raw }}
 {% endblock %}
