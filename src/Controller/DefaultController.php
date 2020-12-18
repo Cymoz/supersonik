@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Page;
 use App\Form\ContactType;
+use App\Mailer\ContactMailer;
 use App\Model\ContactModel;
 use App\Repository\MemberRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -38,11 +39,9 @@ class DefaultController extends AbstractController
      * @param TranslatorInterface $translator
      * @return Response
      */
-    public function contact(Request $request, \Swift_Mailer $mailer, TranslatorInterface $translator, MemberRepository $repository): Response
+    public function contact(ContactMailer $mailer, Request $request, TranslatorInterface $translator): Response
     {
-        $test = $repository->findBy(["email" => true]);
-        dump($test);
-
+        
         $contact = new ContactModel();
         $formOptions = [
             'method' => Request::METHOD_POST,
@@ -59,22 +58,7 @@ class DefaultController extends AbstractController
             $contact = $form->getData();
 
             if($form->isSubmitted() && $form->isValid()){
-                dump($contact);
-                $receiver = ['mounir.senaoui@gmail.com'];
-                $sender = 'mounir.senaoui@gmail.com';
-                $replyTo = $contact->getEmail();
-
-                $message = (new \Swift_Message('Contact depuis le site'))
-                    ->setTo($receiver)
-                    ->setSender($sender)
-                    ->setReplyTo($replyTo)
-                    ->setBody(
-                        $this->render('mail/contact_form.html.twig', [
-                            'contact' => $contact
-                        ]), 'text/html'
-                    );
-
-                $result = $mailer->send($message);
+                $result = $mailer->sendMail($contact);
                 if($result){
                     $this->addFlash('success', $translator->trans('Votre message a bien été envoyé', [],'form'));
                 }else{
