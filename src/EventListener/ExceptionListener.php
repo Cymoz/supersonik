@@ -28,12 +28,12 @@ class ExceptionListener
 
         if($exception->getCode() == 404){
 
-            $receiver = ['mounir.senaoui@gmail.com'];
+            $receiver = ['tarik.graoui@gmail.com'];
             $info = 'Test de contenu';
 
             $message = (new \Swift_Message('404 depuis le site'))
                 ->setTo($receiver)
-                ->setSender('mounir.senaoui@gmail.com')
+                ->setSender('tarik.graoui@gmail.com')
                 ->setReplyTo('admin@admin.fr')
                 ->setBody(
                     $this->twig->render('mail/admin_404.html.twig', [

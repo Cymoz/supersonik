@@ -22,9 +22,9 @@ class PageRepository extends ServiceEntityRepository
     public function getOneBySlug($slug)
     {
         return $this->createQueryBuilder('p')
-            ->join('p.translation', 'pt')
+            ->join('p.translations', 'pt')
             ->where('pt.slug = :slug')
-            ->setParameters('slug', $slug)
+            ->setParameter('slug', $slug)
             ->getQuery()
             ->getOneOrNullResult();
     }

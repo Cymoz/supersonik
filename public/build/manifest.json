@@ -1,8 +1,10 @@
 {
-  "build/0.f155a0b4.js": "/build/0.f155a0b4.js",
-  "build/1.be76d606.css": "/build/1.be76d606.css",
-  "build/1.ae025264.js": "/build/1.ae025264.js",
-  "build/admin.js": "/build/admin.577076c4.js",
-  "build/app.js": "/build/app.f55ca53a.js",
-  "build/runtime.js": "/build/runtime.d94b3b43.js"
+  "build/admin.css": "/build/admin.css",
+  "build/admin.js": "/build/admin.js",
+  "build/admin~app.css": "/build/admin~app.css",
+  "build/admin~app.js": "/build/admin~app.js",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors~app.js": "/build/vendors~app.js",
+  "build/app.css": "/build/app.css"
 }

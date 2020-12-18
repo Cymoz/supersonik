@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="OJO27vq" resname="contact.form.label.name">
+        <source>contact.form.label.name</source>
+        <target>__contact.form.label.name</target>
+      </trans-unit>
+      <trans-unit id="lwKqYoQ" resname="contact.form.placeholder.name">
+        <source>contact.form.placeholder.name</source>
+        <target>__contact.form.placeholder.name</target>
+      </trans-unit>
+      <trans-unit id="fUhB3_4" resname="contact.form.label.email">
+        <source>contact.form.label.email</source>
+        <target>__contact.form.label.email</target>
+      </trans-unit>
+      <trans-unit id="lS7EOcU" resname="contact.form.placeholder.email">
+        <source>contact.form.placeholder.email</source>
+        <target>__contact.form.placeholder.email</target>
+      </trans-unit>
+      <trans-unit id="UFmf9nM" resname="contact.form.placeholder.message">
+        <source>contact.form.placeholder.message</source>
+        <target>__contact.form.placeholder.message</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

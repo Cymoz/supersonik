@@ -2,26 +2,46 @@
 
 namespace App\Twig;
 
+use App\Repository\PageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Twig\Environment;
 use Twig\Extension\RuntimeExtensionInterface;
+use App\Service\WidgetManager;
 
 class AppRuntime implements RuntimeExtensionInterface
 {
-    protected $em;
+    protected $entityManager;
     protected $routingExtension;
+    protected $twig;
+    protected $widgetManager;
+    protected $repository;
 
-    public function __construct(EntityManagerInterface $entityManager, RouterInterface $routerInterface)
+    public function __construct(EntityManagerInterface $entityManager, RouterInterface $routingExtension, Environment $twig, WidgetManager $widgetManager, PageRepository $repository)
     {
-        $this->em = $entityManager;
-        $this->routingExtension;
+        $this->entityManager = $entityManager;
+        $this->routingExtension = $routingExtension;
+        $this->twig = $twig;
+        $this->widgetManager = $widgetManager;
+        $this->repository = $repository;
+    }
+    
+    public function widget($content)
+    {
+       
+        $content = $this->widgetManager->applyWidgets($content);
+
+        return $content;
+
     }
 
     public function pageUrl($context, $alias)
     {
+        //dd($this->repository);
         /**@var $page **/
-        $page = $this->em->getRepository('App:Page')->findOneBy(['alias'=>$alias]);
 
+        //$page = $this->repository->findOneBy(['alias'=>$alias]);
+        $page = $this->entityManager->getRepository('App:Page')->findOneBy(['alias'=>$alias]);
         if (!$page){
             return "#".$alias;
         }

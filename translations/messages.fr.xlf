@@ -25,6 +25,10 @@
         <source>Supermag</source>
         <target>Supermag</target>
       </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>__Contact</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

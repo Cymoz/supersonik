@@ -7,6 +7,7 @@ use App\Entity\Page;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -23,7 +24,8 @@ class PageCrudController extends AbstractCrudController
             ->setFormThemes(
                 [
                     '@A2lixTranslationForm/bootstrap_4_layout.html.twig',
-                    '@EasyAdmin/crud/form_theme.html.twig'
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                    '@FOSCKEditor/Form/ckeditor_widget.html.twig'
                 ]
             );
     }
@@ -41,6 +43,11 @@ class PageCrudController extends AbstractCrudController
                 "field_type" => TextareaType::class,
                 "required" => false,
                 "label" => "Description"
+            ],
+            "content" => [
+                "field_type" => CKEditorType::class,
+                "required" => false,
+                "label" => "Contenu"
             ],
             "keywords" => [
                 "field_type" => TextType::class,
