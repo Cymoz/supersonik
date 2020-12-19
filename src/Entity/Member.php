@@ -37,6 +37,7 @@ class Member implements TranslatableInterface
      */
     private $lastName;
 
+
     /**
      * @Vich\UploadableField(mapping="member_image", fileNameProperty="imageName")
      * @var File|null
@@ -48,6 +49,16 @@ class Member implements TranslatableInterface
      * @var string|null
      */
     private $imageName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $job;
 
     public function getId(): ?int
     {
@@ -108,5 +119,29 @@ class Member implements TranslatableInterface
     public function __toString()
     {
       return $this->firstName. " " . $this->getLastName();
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    public function setJob(?string $job): self
+    {
+        $this->job = $job;
+
+        return $this;
     }
 }

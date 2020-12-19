@@ -5,9 +5,14 @@ namespace App\Model;
 
 
 use Symfony\Component\Validator\Constraints as Assert;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as Recaptcha;
 
 class ContactModel
 {
+    /**
+     * @Recaptcha
+     */
+    public $recaptcha;
 
     /**
      * @var string
@@ -25,6 +30,12 @@ class ContactModel
      * @Assert\NotBlank(message="Le message est obligatoire")
      */
     public $message;
+
+    /**
+     * @var
+     */
+    public $destinataire;
+
 
     /**
      * @return string
@@ -77,6 +88,42 @@ class ContactModel
     public function setMessage($message): ContactModel
     {
         $this->message = $message;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecaptcha()
+    {
+        return $this->recaptcha;
+    }
+
+    /**
+     * @param mixed $recaptcha
+     * @return ContactModel
+     */
+    public function setRecaptcha($recaptcha)
+    {
+        $this->recaptcha = $recaptcha;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDestinataire()
+    {
+        return $this->destinataire;
+    }
+
+    /**
+     * @param mixed $destinataire
+     * @return ContactModel
+     */
+    public function setDestinataire($destinataire)
+    {
+        $this->destinataire = $destinataire;
         return $this;
     }
 
