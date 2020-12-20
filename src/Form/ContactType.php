@@ -57,6 +57,10 @@ class ContactType extends AbstractType
             ])
             ->add('destinataire', EntityType::class, [
                     'class' => Member::class,
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('m')
+                            ->where('m.email IS NOT NULL');
+                    },
                     'choice_label' => 'email',
                 ]
             )
