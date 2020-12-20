@@ -56,12 +56,13 @@ class ContactType extends AbstractType
                 ]
             ])
             ->add('destinataire', EntityType::class, [
+                'label' => 'Poste du destinataire',
                     'class' => Member::class,
                     'query_builder' => function (EntityRepository $er) {
                         return $er->createQueryBuilder('m')
                             ->where('m.email IS NOT NULL');
                     },
-                    'choice_label' => 'email',
+                    'choice_label' => 'job',
                 ]
             )
             ->add('recaptcha', EWZRecaptchaType::class, [
