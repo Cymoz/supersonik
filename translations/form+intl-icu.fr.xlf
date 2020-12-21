@@ -45,6 +45,10 @@
         <source>Erreur dans le formulaire</source>
         <target>Erreur dans le formulaire</target>
       </trans-unit>
+      <trans-unit id="XNR.4Z." resname="contact.form.label.destinataire">
+        <source>contact.form.label.destinataire</source>
+        <target>Poste du destinataire</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

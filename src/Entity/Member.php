@@ -111,16 +111,6 @@ class Member implements TranslatableInterface
         return $this->imageName;
     }
 
-    public function __call($name, $arguments)
-    {
-        return $this->proxyCurrentLocaleTranslation($name, $arguments);
-    }
-
-    public function __toString()
-    {
-      return $this->firstName. " " . $this->getLastName();
-    }
-
     public function getEmail(): ?string
     {
         return $this->email;
@@ -144,4 +134,16 @@ class Member implements TranslatableInterface
 
         return $this;
     }
+
+    public function __call($name, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($name, $arguments);
+    }
+
+    public function __toString()
+    {
+      return $this->firstName. " " . $this->getLastName();
+    }
+
+
 }

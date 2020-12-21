@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Member;
 use App\Form\ContactType;
 use App\Model\ContactModel;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,11 +15,33 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DefaultController extends AbstractController
 {
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+
+    /**
+     * DefaultController constructor.
+     * @param EntityManagerInterface $entityManager
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(EntityManagerInterface $entityManager, TranslatorInterface $translator)
+    {
+
+        $this->entityManager = $entityManager;
+        $this->translator = $translator;
+    }
+
     public function index(): Response
     {
-        $em = $this->getDoctrine()->getManager();
 
-        $members = $em->getRepository('App:Member')->findAll();
+
+        $members = $this->entityManager->getRepository('App:Member')->findAll();
 
         $context = [
             'controller_name' => 'DefaultController',
@@ -27,11 +51,12 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', $context);
     }
 
-    public function contact(Request $request, \Swift_Mailer $mailer, TranslatorInterface $translator): Response
+    public function contact(Request $request, \Swift_Mailer $mailer): Response
     {
         $context = [];
 
         $contact = new ContactModel();
+
 
         $form = $this->createForm(ContactType::class, $contact);
 
@@ -40,7 +65,9 @@ class DefaultController extends AbstractController
             $contact = $form->getData();
 
             if ($form->isSubmitted() && $form->isValid()) {
-                $receiver = array('godefroy@admin.fr');
+                $receiver = $contact->getDestinataire();
+
+                dd($receiver);
                 $sender = 'godefroy@admin.fr';
                 $replyTo = $contact->getEmail();
 
@@ -57,10 +84,10 @@ class DefaultController extends AbstractController
                 $result = $mailer->send($message);
 
                 if ($result) {
-                    $this->addFlash('ContactSuccess', $translator->trans('contact.form.success',[], 'form'));
+                    $this->addFlash('ContactSuccess', $this->translator->trans('contact.form.success',[], 'form'));
 
                 } else
-                    $this->addFlash('ContactError', $translator->trans('contact.form.error', [], 'form'));
+                    $this->addFlash('ContactError', $this->translator->trans('contact.form.error', [], 'form'));
 
                 return $this->redirect($request->getUri());
             }
@@ -72,7 +99,7 @@ class DefaultController extends AbstractController
         return $this->render('default/contact.html.twig', $context);
     }
 
-    public function page($slug, EntityManagerInterface $entityManager): Response
+    public function page($slug): Response
     {
 
         $tabLocales = $this->getParameter('locales');
@@ -85,7 +112,7 @@ class DefaultController extends AbstractController
 
         }
 
-        $page = $entityManager->getRepository('App:Page')->getOneBySlug($slug);
+        $page = $this->entityManager->getRepository('App:Page')->getOneBySlug($slug);
 
 
         if (!$page) {
@@ -98,4 +125,5 @@ class DefaultController extends AbstractController
 
         return $this->render($template, $context);
     }
+
 }

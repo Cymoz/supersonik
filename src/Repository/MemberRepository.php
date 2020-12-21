@@ -19,6 +19,14 @@ class MemberRepository extends ServiceEntityRepository
         parent::__construct($registry, Member::class);
     }
 
+    public function findMembersWithEmail(){
+        return $this->createQueryBuilder('m')
+            ->where('m.email IS NOT NULL')
+            ->getQuery()
+            ->getResult();
+    }
+
+
     // /**
     //  * @return Member[] Returns an array of Member objects
     //  */
