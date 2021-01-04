@@ -38,6 +38,8 @@ class DefaultController extends AbstractController
         if ($request->getMethod() === Request::METHOD_POST) {
             $form->handleRequest($request);
             $contact = $form->getData();
+            dump($contact);
+            dump($form->isValid());
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $receiver = array('admin@admin.fr');
@@ -57,10 +59,10 @@ class DefaultController extends AbstractController
                 $result = $mailer->send($message);
 
                 if ($result) {
-                    $this->addFlash('ContactSuccess', $translator->trans('contact.form.success',[], 'form'));
+                    $this->addFlash('success', $translator->trans('contact.form.success',[], 'form'));
 
                 } else
-                    $this->addFlash('ContactError', $translator->trans('contact.form.error', [], 'form'));
+                    $this->addFlash('danger', $translator->trans('contact.form.error', [], 'form'));
 
                 return $this->redirect($request->getUri());
             }

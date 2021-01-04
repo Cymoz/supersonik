@@ -4,23 +4,24 @@
 
 
     <div class="container">
-        {% for message in app.flashes('ContactSuccess') %}
-            <div class="alert alert-success">
-                {{ message }}
-            </div>
+        {% if not form.vars.valid %}
+            <div class="alert alert-danger">Le Formulaire n'est pas valide</div>
+        {% endif %}
+        {% for type, messages in app.flashes(['success', 'danger']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
 
-        {% if not form.vars.valid %}
-            <div class="alert alert-danger">
-                {{ 'Erreur dans le formulaire'|trans([],'form') }}
-            </div>
-        {% endif %}
-
         {{ form_start(form) }}
+
         <div class="row">
 
             <div class="col-md-6">
-                {{ form_row(form.name) }}
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
             </div>
 
             <div class="col-md-6">
@@ -28,43 +29,12 @@
             </div>
             <div class="col-md-12">
                 {{ form_row(form.message) }}
+                <br>
+                <button type="submit" class="btn btn-success"> {{ 'Envoyer'|trans([], 'form') }} </button>
             </div>
         </div>
         {{ form_rest(form) }}
 
-        <button type="submit" class="btn btn-success">
-            {{ 'Envoyer'|trans([],'form') }}
-        </button>
-        {{ form_end(form) }}
-
-            {% for type, messages in app.flashes(['ContactSuccess', 'ContactError']) %}
-                {% for message in messages %}
-                    <div class="flash-{{ type }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        </div>
-
-        <div class='col-md-6'>
-            {{ form_row(form.name) }}
-         {# <=>{{ form_label(form.name) }}
-            {{ form_widget(form.name) }} #}
-        </div>
-        <div class='col-md-6'>
-            {{ form_label(form.email) }}
-            {{ form_widget(form.email) }}
-        </div>
-        <div class='col-md-6'>
-            {{ form_label(form.message) }}
-            {{ form_widget(form.message) }}
-            <br>
-            <button type="submit" class=""> {{ 'Envoyer'|trans([], 'form') }} </button>
-        </div>
-
-        
-  
     </div>
-{{ form_rest(form) }}
 
 {% endblock %}

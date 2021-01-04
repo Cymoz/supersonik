@@ -3,7 +3,7 @@
 
 namespace App\Model;
 
-
+//use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ContactModel
@@ -21,12 +21,17 @@ class ContactModel
      * @Assert\Email(message="L'email n'a pas le bon format")
      */
     public $email;
-    
+
     /**
      * @var string
      * @Assert\NotBlank(message="Le message est obligatoire")
      */
     public $message;
+
+    /**
+    *
+    */
+    public $recaptcha;
 
     /**
      * @return string
@@ -87,4 +92,24 @@ class ContactModel
     }
 
 
+
+    /**
+     * Get the value of recaptcha
+     */ 
+    public function getRecaptcha()
+    {
+        return $this->recaptcha;
+    }
+
+    /**
+     * Set the value of recaptcha
+     *
+     * @return  self
+     */ 
+    public function setRecaptcha($recaptcha)
+    {
+        $this->recaptcha = $recaptcha;
+
+        return $this;
+    }
 }

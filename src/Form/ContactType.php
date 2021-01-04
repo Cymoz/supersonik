@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Model\ContactModel;
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaV3Type;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrueV3;
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
@@ -19,7 +21,6 @@ class ContactType extends AbstractType
      * @var Translator
      */
     private $translator;
-
 
     /**
      * ContactType constructor.
@@ -52,7 +53,15 @@ class ContactType extends AbstractType
                     'attr' => [
                         'placeholder' => $this->translator->trans('contact.form.placeholder.message', [], 'form')
                     ]
-                ]);
+                ])
+            ->add('recaptcha', EWZRecaptchaV3Type::class, 
+            [
+                    'action_name' => 'contact',
+                    // 'constraints' => [
+                    //     new IsTrueV3()
+                    // ]
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
