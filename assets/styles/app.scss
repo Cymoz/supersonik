@@ -8,6 +8,15 @@
 font-family: $font;
 }
 
+body {
+  font-family: Open Sans,sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  -webkit-text-size-adjust: 100%;
+  color: #888;
+}
+
 .my-color {
   color: $primary-color;
 }
@@ -62,6 +71,79 @@ header nav {
   margin-top: 1.25rem;
 }
 
+.icon-yellow {
+  color: $primary-color;
+  font-size: 60px !important
+}
+
+.separationGrise {
+  width: 15.8rem;
+  border-top: 1px solid #eee;
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  height: 0;
+}
+
+.team {
+  padding-top: 80px;
+}
+
+.section-title {
+  margin-bottom: 60px; 
+}
+
+.section-padding {
+  padding: 20px 0;
+}
+
+.hovereffect {
+  float: left;
+  position: relative;
+  text-align: center;
+  cursor: default;
+    img {
+      display: block;
+      position: relative;
+      filter: grayscale(100%);
+      width: 100%;
+    }
+
+   .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+        h2 {
+          text-transform: uppercase;
+          color: #fff;
+          text-align: center;
+          font-size: 17px;
+        }
+    }
+}
+
+.hovereffect, .hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hovereffect h2, .hovereffect p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: opacity .35s, webkit transform .35s;
+  transition: opacity .35s, transform .35s;
+  transition: opacity .35s, transform .35s, -webkit-transform .35s;
+  -webkit-transform: translated3d(50%, 50%, 0);
+  transform: translated3d(-50%, 50%, 0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
 .yellow {
   color: $primary-color;
 }
@@ -82,6 +164,26 @@ header nav {
 
 .textJustify {
   text-align: justify;
+}
+
+.single_counter {
+  h1 {
+  margin-bottom: 0;
+  font-size: 40px;
+  }
+  h5 {
+    margin-bottom: 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  span {
+    background: #fff none repeat scroll 0 0;
+    display: block;
+    height: 2px;
+    margin: 10px auto;
+    width: 60px;
+    
+  }
 }
 
 
