@@ -10,9 +10,6 @@ font-family: $font;
 
 body {
   font-family: Open Sans,sans-serif;
-  font-weight: 300;
-  font-size: 1.5rem;
-  line-height: 2.2rem;
   -webkit-text-size-adjust: 100%;
   color: #888;
 }
@@ -24,6 +21,13 @@ h1 h2 h3 h4 h5 h6 {
 p {
   font-size: 1rem;
 }
+
+
+// .taille-txt-div-qui {
+//   width: 20%;
+// }
+
+
 
 .my-color {
   color: $primary-color;
@@ -73,6 +77,11 @@ header nav {
   font-size: 40px;
 }
 
+.h3-style {
+  font-size:  30px;
+  color: gray;
+}
+
 .hr-taille{
   width: 6rem;
   margin: auto;
@@ -115,7 +124,7 @@ header nav {
   width: 100%;
 }
 
-.separationGrise {
+.separation-grise {
   width: 15.8rem;
   border-top: 1px solid #eee;
   margin-top: 20px; 
@@ -212,6 +221,7 @@ header nav {
 
 .yellow {
   color: $primary-color;
+  font-size: 40px;
 }
 
 .btn-primary.btn-alt {
@@ -315,6 +325,76 @@ header nav {
       max-width: 100%;
       height: auto;
     }
+}
+
+.contact {
+  background: #fff none repeat scroll 0 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 35px;
+    
+  input:hover {
+      background-color: gray;
+    }
+}
+
+.pushbutton-wide {
+  height: 50px;
+  width: 100px;
+  border: none;
+  background-color: $primary-color !important;
+  margin: 15px 0;
+  border-color: $primary-color;
+  position: relative;
+  left: 30rem;
+  bottom: 5rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.icon-background-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: $primary-color;
+}
+.color-logo-contact {
+  color: white;
+  position: relative;
+  left: 0.65rem;
+  top: 0.65rem;
+  font-size: 1.25rem;
+}
+
+.social {
+  color: $primary-color;
+  padding-left: 3.5rem;
+  font-size: 1.5rem;
+}
+
+.single_address {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+
+    p {
+      padding-left: 20px;
+    }
+}
+
+.custom-yellow-follow {
+  font-size: 24px;
+  color: $primary_color;
+  display: inline-block;
+  position: relative;
+  top: 27px;
+  
+}
+
+.div-reseaux {
+  width: 80%;
+  padding-left: 6rem;
+ 
 }
 
 // .owl-carousel {
