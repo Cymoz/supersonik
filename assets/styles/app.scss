@@ -17,6 +17,14 @@ body {
   color: #888;
 }
 
+h1 h2 h3 h4 h5 h6 {
+  margin-bottom: 10px; 
+}
+
+p {
+  font-size: 1rem;
+}
+
 .my-color {
   color: $primary-color;
 }
@@ -59,21 +67,52 @@ header nav {
   align-self: flex-start;
 }
 
-.h2Style {
+.h2-style {
   color: $primary-color;
   text-align: center;
   font-size: 40px;
 }
 
-.hrTaille {
+.hr-taille{
   width: 6rem;
   margin: auto;
   margin-top: 1.25rem;
 }
 
+.espace {
+  margin-bottom: 1rem;
+}
+
+.espace-h2 {
+  padding-top: 4rem;
+  padding-bottom: 0.75rem;
+}
+
+.espaceAgenceReactive {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.gras {
+  font-weight: bold;
+}
+
+.no-padding{
+  padding: 0;
+}
+
 .icon-yellow {
   color: $primary-color;
   font-size: 60px !important
+}
+
+.img-taille-realisations {
+  max-width: 100%;
+  width: 90%;
+}
+
+.sing_work_photo {
+  width: 100%;
 }
 
 .separationGrise {
@@ -84,8 +123,18 @@ header nav {
   height: 0;
 }
 
+
+
 .team {
   padding-top: 80px;
+}
+
+.tailleDivImgTeam {
+  width: 25%;
+}
+
+.teammate {
+  width: 50%;
 }
 
 .section-title {
@@ -144,6 +193,23 @@ header nav {
   padding: 0;
 }
 
+.hovereffect2 {
+  width: 100%;
+  height: 100%;
+  max-height: 450px; 
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+
+    img {
+      display: block;
+      position: relative;
+      transition: all .35s;
+    }
+}
+
 .yellow {
   color: $primary-color;
 }
@@ -154,11 +220,15 @@ header nav {
   border-color: $primary-color;
 }
 
+// .btn-primary.btn-alt :hover {
+    
+// }
+
 .bouttunAlignCenter {
   text-align: center;
 }
 
-.textAlignCenter {
+.text-center {
   text-align: center;
 }
 
@@ -168,21 +238,24 @@ header nav {
 
 .single_counter {
   h1 {
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   font-size: 40px;
+  text-align: center;
   }
   h5 {
-    margin-bottom: 0;
+    margin-top: 0.2rem;
     font-size: 18px;
     letter-spacing: 1px;
+    text-align: center;
   }
   span {
     background: #fff none repeat scroll 0 0;
     display: block;
     height: 2px;
-    margin: 10px auto;
     width: 60px;
-    
+    position: relative;
+    // right: 90%; 
+    left: 6rem
   }
 }
 
@@ -206,3 +279,44 @@ header nav {
 .container .row .colloneDivJauneChiffre {
   color: white;
 }
+
+.taille-div-expertise {
+  width: 50%;
+}
+
+.taille-img-expertise{
+  width: 100%; 
+}
+
+.single_blog {
+  background: #fff none repeat scroll 0 0;
+  box-shadow: 0 0 5px rgba(0,0,0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.single_blog_header {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.hovereffect3 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+  position: relative;
+  text-align: center;
+  cursor: default;
+    img {
+      display: block;
+      position: relative;
+      transition: all 0.4s linear;
+      max-width: 100%;
+      height: auto;
+    }
+}
+
+// .owl-carousel {
+
+// }

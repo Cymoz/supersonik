@@ -13,6 +13,5 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import $ from 'jquery';
 
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
-console.log($('body'));
+
 window.$ = $;
