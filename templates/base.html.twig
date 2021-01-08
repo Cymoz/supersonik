@@ -8,8 +8,10 @@
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="/js/slick-1.8.1/slick/slick.css"/>
-		<link rel="stylesheet" type="text/css" href="/js/slick-1.8.1/slick/slick-theme.css"/>
+		{# <link rel="stylesheet" type="text/css" href="/js/slick-1.8.1/slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="/js/slick-1.8.1/slick/slick-theme.css"/> #}
+		<link rel="stylesheet" href="js/OwlCarousel2/dist/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="js/OwlCarousel2/dist/assets/owl.theme.default.min.css">	
 		{{ encore_entry_link_tags('app') }}
 		{% block stylesheets %}{% endblock %}
 	</head>
@@ -18,7 +20,7 @@
 
 		{% block nav %}
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top.scrolled">
 
 				<a class="navbar-brand" href="#"><img src="https://www.agence-supersonik.com/contenu/uploads/2017/11/logo-sk-black-300x113.png" alt="logo" scale="0"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,6 +66,8 @@
 
 		{% endblock %}
 		
+			
+
 		{% block body %}{% endblock %}
 
 		{% block javascripts %}{% endblock %}

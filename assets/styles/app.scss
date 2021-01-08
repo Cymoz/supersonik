@@ -53,6 +53,11 @@ a {
   text-decoration: none;
 }
 
+.navbar-fixed-top.scrolled {
+  background-color: red !important;
+  transition: background-color 200ms linear;
+  position: sticky;
+}
 
 header nav {
       .ulNavBAr {
