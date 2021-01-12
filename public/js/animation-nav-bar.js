@@ -1,3 +1,4 @@
+console.log("test");
 $(function () {
     $(document).scroll(function () {
         let $nav = $(".navbar-fixed-top");
