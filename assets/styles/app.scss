@@ -79,6 +79,24 @@ header nav {
   align-self: flex-start;
 }
 
+#navbar {
+  overflow: hidden;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.content + .sticky {
+  padding-top: 60;
+}
+
 .h2-style {
   color: $primary-color;
   text-align: center;
@@ -89,6 +107,10 @@ header nav {
 .h3-style {
   font-size: 30px;
   color: gray;
+}
+
+.taille-text-p {
+  text-align: justify;
 }
 
 .hr-taille{
