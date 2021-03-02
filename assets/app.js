@@ -13,7 +13,6 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
+import 'animation-nav-bar.js';
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
-console.log($('body'));
 window.$ = $;

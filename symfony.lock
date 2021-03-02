@@ -1,15 +1,6 @@
 {
-    "a2lix/auto-form-bundle": {
-        "version": "0.3.3"
-    },
-    "a2lix/translation-form-bundle": {
-        "version": "3.0.7"
-    },
     "behat/transliterator": {
         "version": "v1.3.0"
-    },
-    "brick/math": {
-        "version": "0.9.1"
     },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
@@ -35,9 +26,6 @@
     "doctrine/common": {
         "version": "3.0.2"
     },
-    "doctrine/data-fixtures": {
-        "version": "1.4.4"
-    },
     "doctrine/dbal": {
         "version": "2.12.1"
     },
@@ -54,18 +42,6 @@
             "./config/packages/prod/doctrine.yaml",
             "./src/Entity/.gitignore",
             "./src/Repository/.gitignore"
-        ]
-    },
-    "doctrine/doctrine-fixtures-bundle": {
-        "version": "3.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.0",
-            "ref": "e5b542d4ef47d8a003c91beb35650c76907f7e53"
-        },
-        "files": [
-            "./src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -117,54 +93,14 @@
     "egulias/email-validator": {
         "version": "2.1.24"
     },
-    "excelwebzone/recaptcha-bundle": {
-        "version": "1.5",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.5",
-            "ref": "fd4da7bc71749db65bc83abf5d164bfa9c839cf4"
-        },
-        "files": [
-            "./config/packages/dev/ewz_recaptcha.yaml",
-            "./config/packages/ewz_recaptcha.yaml"
-        ]
-    },
-    "friendsofsymfony/ckeditor-bundle": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "8eb1cd0962ded6a6d6e1e5a9b6d3e888f9f94ff6"
-        },
-        "files": [
-            "./config/packages/fos_ckeditor.yaml"
-        ]
-    },
     "gedmo/doctrine-extensions": {
         "version": "v3.0.0"
-    },
-    "google/recaptcha": {
-        "version": "1.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.1",
-            "ref": "d087df3e087f50da3955f2def05079380da5894b"
-        },
-        "files": [
-            "./config/packages/google_recaptcha.yaml"
-        ]
     },
     "imagine/imagine": {
         "version": "1.2.4"
     },
     "jms/metadata": {
         "version": "2.3.0"
-    },
-    "knplabs/doctrine-behaviors": {
-        "version": "v2.0.8"
     },
     "laminas/laminas-code": {
         "version": "3.5.0"
@@ -190,9 +126,6 @@
     },
     "monolog/monolog": {
         "version": "1.25.5"
-    },
-    "nette/utils": {
-        "version": "v3.2.0"
     },
     "nikic/php-parser": {
         "version": "v4.10.2"
@@ -224,12 +157,6 @@
     "psr/log": {
         "version": "1.1.3"
     },
-    "ramsey/collection": {
-        "version": "1.1.1"
-    },
-    "ramsey/uuid": {
-        "version": "4.1.1"
-    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -253,9 +180,6 @@
         "files": [
             "./config/packages/stof_doctrine_extensions.yaml"
         ]
-    },
-    "swiftmailer/swiftmailer": {
-        "version": "v6.2.4"
     },
     "symfony/apache-pack": {
         "version": "1.0",
@@ -559,20 +483,6 @@
     },
     "symfony/string": {
         "version": "v5.1.8"
-    },
-    "symfony/swiftmailer-bundle": {
-        "version": "2.5",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.5",
-            "ref": "ae4d22af30bbd484506bc1817c5a3ef72c855b93"
-        },
-        "files": [
-            "./config/packages/dev/swiftmailer.yaml",
-            "./config/packages/swiftmailer.yaml",
-            "./config/packages/test/swiftmailer.yaml"
-        ]
     },
     "symfony/templating": {
         "version": "v4.4.16"
