@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class MediaCrudController extends AbstractCrudController
 {
@@ -34,12 +35,11 @@ class MediaCrudController extends AbstractCrudController
             AssociationField::new('projects', 'Projets'),
             TextField::new('name'),
             TextField::new('alias'),
-            ImageField::new('image', 'Photo')
-                ->setUploadDir('public' . $this->params->get('app.path.media_images'))
-                //->setFormType(VichImageType::class)
-                ->setBasePath('public' . $this->params->get('app.path.media_images'))
+            TextField::new('imageFile', 'image')
+                ->setFormType(VichImageType::class)->onlyOnForms(),
+            ImageField::new('image', 'image')
+                ->setBasePath($this->params->get('app.path.media_images'))->onlyOnIndex()
                 ->setTemplatePath('admin/vich_uploader_image.html.twig')
-                ->setUploadedFileNamePattern('[timestamp]-[slug].[extension]'),
         ];
     }
 

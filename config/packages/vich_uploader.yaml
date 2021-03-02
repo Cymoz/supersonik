@@ -5,14 +5,20 @@ vich_uploader:
     member_images:
       uri_prefix:         '%app.path.member_images%'
       upload_destination: '%kernel.project_dir%/public%app.path.member_images%'
-      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer # or any other namer listed above
+      namer:
+        service: Vich\UploaderBundle\Naming\HashNamer
+        options: { algorithm: 'sha256', length: 15 }
 
     customer_images:
       uri_prefix: '%app.path.customer_images%'
       upload_destination: '%kernel.project_dir%/public%app.path.customer_images%'
-      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer # or any other namer listed above
+      namer:
+        service: Vich\UploaderBundle\Naming\HashNamer
+        options: { algorithm: 'sha256', length: 15 }
 
     media_images:
       uri_prefix: '%app.path.media_images%'
       upload_destination: '%kernel.project_dir%/public%app.path.media_images%'
-      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer # or any other namer listed above
+      namer:
+        service: Vich\UploaderBundle\Naming\HashNamer
+        options: { algorithm: 'sha256', length: 15 }
