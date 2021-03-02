@@ -91,12 +91,5 @@ class MemberCrudController extends AbstractCrudController
         }*/
 
         return $fields;
-
-
     }
-
-
-
-
-
 }

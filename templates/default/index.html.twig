@@ -5,849 +5,849 @@
 
 
 {% block body %}
-	<main>
 
-		<section>
-			<h2 class="h2-style">Qui sommes-nous?</h2>
 
-			<hr class="hr-taille">
+	<div class="container">q
+		<h2>Liste des membres</h2>
+		<div class="row">
+			{% for member in members %}
+				<div class="col-4">
 
-			<div class="page_content">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 taille-div-col-md-12">
-							<h2 class="yellow espace-h2">Supersonik</h2>
-							<h3 class="h3-style">Un interlocuteur unique, à l’écoute de vos besoins !</h3>
-						</div>
-						<div class="col-md-8 col-sm-12 taille-txt-div-qui">
+					{#<img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}" alt="{{ member }}"/>#}
+					<img src="{{ vich_uploader_asset(member, 'imageFile') }}" style="max-width: 150px" alt="{{ member }}"/>
 
-							<p class="espace"></p>
-
-							<p class="taille-text-p">La philosophie de SupersoniK, agence de communication évènementielle à Bordeaux, est de tout mettre en œuvre pour apporter une réponse globale et efficace à vos objectifs de communication.</p>
-
-							<p class="espace"></p>
-
-							<p class="taille-text-p">Communication
-								<span class="gras">interne</span>
-								par la conception et la mise en place de séminaires, conventions, challenges, roadshows etc.</p>
-
-							<p class="espace"></p>
-
-							<p class="taille-text-p">Communication
-								<span class="gras">externe</span>
-								par l’organisation de soirées à thème, grands événements, inaugurations, opérations de street marketing, Relations Publiques etc.</p>
-						</div>
-						<div class="col-md-4">
-							<img src="{{'img/fuseeJaune.webp'}}" alt="fuséeJauneSectionQuiSommesNous">
-						</div>
-					</div>
+					<br>
+					{{ member.firstName }} {{ member.lastName }}<br>
+					{{ member.description|raw }}
 				</div>
-
-				<p class="bouttunAlignCenter">
-					<a class="btn btn-primary btn-alt" href="#lagence">Découvrir notre agence</a>
-				</p>
-
-				<div class="row row-margin">
-					<div class="col-md-12">
-						<div class="text-center">
-							<h2 class="text-gray rotator espaceAgenceReactive">Une agence
-								<span class="rotate">
-									<span class="rotating flip up">
-										<span class="front">
-											réactive
-										</span>
-										<span class="back">
-											expérimentée
-										</span>
-									</span>
-								</span>
-							</h2>
-							<span></span>
-						</div>
-					</div>
-				</div>
-
-				<div class="container">
-					<div class="row">
-						<div class="col-md-3 col-xs-12">
-							<p class="text-center">
-								<i class="fa fa-bullhorn fa- icon-yellow icon-large "></i>
-							</p>
-							<h3 class="text-center margin-h3-agence-ex">
-								<span class="cardMotImportant">CONSEIL</span>
-							</h3>
-							<hr class="separation-grise">
-
-							<p class="textJustify"> Nous sommes à votre écoute afin de bien comprendre la manière dont vous souhaitez intégrer votre évènement à votre stratégie de communication existante. Cette première phase de diagnostic nous permet alors de vous proposer un concept événementiel unique au coeur d’une stratégie de communication globale!</p>
-
-						</div>
-
-						<div class="col-md-3 col-xs-12">
-							<p class="text-center">
-								<i class="fa fa-cogs fa- icon-yellow icon-large"></i>
-							</p>
-							<h3 class="text-center">
-								<span class="cardMotImportant">CONCEPTION</span>
-							</h3>
-							<hr class="separation-grise">
-
-							<p class="textJustify">Tout au long de la phase de conception, nous vous proposerons un plan concept et un moment clé pour vous.</p>
-						</div>
-
-						<div class="col-md-3 col-xs-12">
-							<p class="text-center">
-								<i class="fa fa-plug fa- icon-yellow icon-large"></i>
-							</p>
-							<h3 class="text-center">
-								<span class="cardMotImportant">PRODUCTION</span>
-							</h3>
-							<hr class="separation-grise">
-
-							<p class="textJustify">Nous suivons votre événement de A à Z de la sélection des différentes réunions préparatoires et montage de dossiers juridiques, fiscaux…</p>
-						</div>
-
-						<div class="col-md-3 col-xs-12">
-
-							<p class="text-center">
-								<i class="fa fa-desktop fa- icon-yellow icon-large"></i>
-							</p>
-							<h3 class="text-center">
-								<span class="cardMotImportant">SOLUTIONS DIGITALES</span>
-							</h3>
-							<hr class="separation-grise">
-
-							<p class="textJustify">Nous vous proposons des solutions alternatives à la formation process, ou encore, de comportements que vous pouvez rencontrer.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</section>
-
-		<section class="team">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title text-center wow zoomIn">
-							<h2 class="h2-style">L'équipe supersonik</h2>
-							<hr class="hr-taille">
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-md-4 col-sm-6 col-xs-12 no-padding">
-						<div class="hovereffect">
-							<img class="img-responsive teammate" src="{{asset('img/olivier.jpg')}}" alt="Directeur Fondateur">
-
-							<div class="overlay tailleDivImgTeam">
-								<h2>Olivier MIGNON
-									<br>
-									<span>Directeur / Fondateur</span>
-								</h2>
-								<!-- <h3></h3> -->
-								<p>
-									<a href="https://fr.linkedin.com/in/olivier-mignon-7971791b/en">
-										<i class="fa fa-linkedin"></i>
-									</a>
-									<a href="olivier.mignon@agence-supersonik.com">
-										<i class="fa fa-envelope-o"></i>
-									</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 no-padding">
-						<div class="hovereffect tailleDivImgTeam">
-							<img class="img-responsive teammate" src="{{asset('img/clementine.jpg')}}" alt="Chef de projet">
-
-							<div class="overlay">
-								<h2>Clémentine DELAVAUD
-									<br>
-									<span>Chef de projet</span>
-								</h2>
-								<!-- <h3></h3> -->
-								<p>
-									<a href="http://www.agence-supersonik.com/linkedin.com/in/clementinedelavaud">
-										<i class="fa fa-linkedin"></i>
-									</a>
-									<a href="clementine@agence-supersonik.com">
-										<i class="fa fa-envelope-o"></i>
-									</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 no-padding">
-						<div class="hovereffect tailleDivImgTeam">
-							<img class="img-responsive teammate" src="{{asset('img/agathe_texier.jpg')}}" alt="Chef de projet">
-
-							<div class="overlay">
-								<h2>Agathe TEXIER
-									<br>
-									<span>Chef de projet</span>
-								</h2>
-								<!-- <h3></h3> -->
-								<p>
-									<a href="https://www.linkedin.com/in/agathe-texier-aab78082">
-										<i class="fa fa-linkedin"></i>
-									</a>
-									<a href="agathe@agence-supersonik.com">
-										<i class="fa fa-envelope-o"></i>
-									</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="template_counter section-padding">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-3">
-						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre" data-wow-relay="0.2s">
-
-							<h1>10</h1>
-							<span></span>
-							<h5>ANS D'EXPÉRIENCE</h5>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-3">
-						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre">
-							<h1>+ 150</h1>
-							<span></span>
-							<h5>ÉVENEMENTS</h5>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-3">
-						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre">
-							<h1>1 000 000</h1>
-							<span></span>
-							<h5>IDÉES</h5>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-3">
-						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre">
-							<h1>+ 60 000</h1>
-							<span></span>
-							<h5>PARTICIPANTS</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section id="portfolio" class="template_portfolio">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title text-center">
-							<h2 class="h2-style espace-h2">Nos réalisations</h2>
-							<hr class="hr-taille">
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-sm-4">
-						<div class="single_our_work">
-							<div class="sing_work_photo">
-								<figure>
-									<img class="img-responsive img-taille-realisations" src="{{asset('img/portfolioImg/msd1.webp')}}" alt="Grande Roue public">
-									<div class="sing_work_text_link">
-										<div class="sing_work_content_wrap">
-											<div class="sing_work_content">
-												<div class="sing_link_img">
-													<a href="#" data-toggle="modal" date-target="#projetModa18139">
-														<i class="fa fa-eye"></i>
-													</a>
-												</div>
-												<h5>MSD - Santé Animale 2019</h5>
-											</div>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="single_our_work">
-							<div class="sing_work_photo">
-								<figure>
-									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/plage_photo_groupe.webp'}}" alt="photo plage mer soleil public">
-									<div class="sing_work_text_link">
-										<div class="sing_work_content_wrap">
-											<div class="sing_work_content">
-												<div class="sing_link_img">
-													<a href="#" data-toggle="modal" date-target="#projetModa18139">
-														<i class="fa fa-eye"></i>
-													</a>
-												</div>
-												<h5>Séminaire des 30 ans de Scalian</h5>
-											</div>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="single_our_work">
-							<div class="sing_work_photo">
-								<figure>
-									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/fete_bois_foret.webp'}}" alt="forêt bois lumière">
-									<div class="sing_work_text_link">
-										<div class="sing_work_content_wrap">
-											<div class="sing_work_content">
-												<div class="sing_link_img">
-													<a href="#" data-toggle="modal" date-target="#projetModa18139">
-														<i class="fa fa-eye"></i>
-													</a>
-												</div>
-												<h5>Mariage de Leslie & David</h5>
-											</div>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="single_our_work">
-							<div class="sing_work_photo">
-								<figure>
-									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/plage_sable.webp"'}} alt=" nature paysage plage mer">
-									<div class="sing_work_text_link">
-										<div class="sing_work_content_wrap">
-											<div class="sing_work_content">
-												<div class="sing_link_img">
-													<a href="#" data-toggle="modal" date-target="#projetModa18139">
-														<i class="fa fa-eye"></i>
-													</a>
-												</div>
-												<h5>Summer Camp Banque Casino</h5>
-											</div>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-12 col-sm-4">
-						<div class="single_our_work">
-							<div class="sing_work_photo">
-								<figure>
-									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/seville_a_l_essentiel.webp"'}} alt=" voyage séville">
-									<div class="sing_work_text_link">
-										<div class="sing_work_content_wrap">
-											<div class="sing_work_content">
-												<div class="sing_link_img">
-													<a href="#" data-toggle="modal" date-target="#projetModa18139">
-														<i class="fa fa-eye"></i>
-													</a>
-												</div>
-												<h5>Voyage à Séville – CIC Sud-Ouest</h5>
-											</div>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-offset-3 col-xs-12 col-md-6"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<a href="https://www.agence-supersonik.com/realisations/" class="btn btn-primary btn-alt">Voir tous les projets</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section id="products" class="team">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title text-center wow zooIn" style="visibility: visible; animation-name: hb;">
-							<h2 class="h2-style espace-h2">Notre expertise</h2>
-							<hr class="hr-taille">
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-md-6 col-xs-12 no-padding taille-div-expertise">
-						<div class="hovereffect2">
-							<img class="taille-img-expertise" src="{{'img/formations_ludiques.jpg'}}" alt="formations ludiques">
-
-							<div class="overlay">
-								<h2>FORMATIONS LUDIQUES</h2>
-								<p>
-									<a href="https://www.agence-supersonik.com/product/scenes-de/">Voir le produit</a>
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12 no-padding taille-div-expertise">
-						<div class="hovereffect2">
-							<img class="taille-img-expertise" src="{{'img/escapade.jpg"'}} alt=" escapade">
-
-							<div class="overlay">
-								<h2>Séminaires & conventions</h2>
-								<p>
-									<a href="https://www.agence-supersonik.com/product/seminaires-conventions/">Voir le																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												                                        produit</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title text-center">
-							<h2 class="h2-style espace-h2">Le SuperMag</h2>
-							<hr class="hr-taille">
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-sm-6">
-						<div class="single_blog">
-							<div class="single_blog_header">
-								<h3>Top 16 des lieux insolite...</h3>
-								<span>Par: admin - Le: 29/12/2020</span>
-							</div>
-							<div class="hovereffect3">
-								<img class="img-responsive" src="{{'img/place_de_la_bourse_bordeaux.webp'}}" alt="place de la bourse Bordeaux">
-								<div class="overlay">
-									<p>TOP 16 DES LIEUX INSOLITES À BORDEAUX</p>
-
-									<p>
-										Nous vous avons sélectionnés les 16 meilleurs sites insolites de Bordeaux pour vos événements. #NOUVEAUX Espace Marengo L’espace Marengo est un lieu atypique et singulier, au coeur du quartier Saint-Michel à Bordeaux. Ancien Cloître au 13ème siècle puis…</p>
-
-									<a class="info" href="https://www.agence-supersonik.com/test/" title="Top 16 des lieux insolites à Bordeaux">Lire l'article</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6">
-						<div class="sbi sbi_mob_col_auto sbi_col_4" id="sb_instagram" data-id="5750287402" data-num="12" data-res="auto" data-cols="4" data-options="{" sortby": " none" , " showbio" : " false"," feedid": " 5750287402" , " headercolor" : " " , " imagepadding" : " 5" ," mid": " m2e4mwe5zg==", " disablecache" : " false" , " sbicacheexists" : " true"," callback": " nme3otqynzm5ogm3.ndk2ytg5mdqwytjinmi1zdc0mgq=" , " sbiheadercache" : " true" }" data-sbi-index="1">
-
-							<p style="text-align: center;">Unable to show Instagram photos</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<a href="https://www.agence-supersonik.com/actualites/" class="btn btn-primary btn-alt">Voir
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								                            toutes les actualités</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<div class="partner-logo section-padding">
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-md-12">
-						<div class="section-title">
-							<h2 class="h2-style espace-h2">Ils nous font confiance</h2>
-							<hr class="hr-taille">
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="logos owl-carousel owl-theme wow fadeInRight">
-							<div class="item">
-								<a target="_blank" href="http://www.scalian.com/accueil/">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/scalian.png'}}" alt="logo - Scalian">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="https://www.kury.fr/">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/kury_ingenierie.png'}}" alt="logo - Kury Ingénierie">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/banque_casino.png'}}" alt="logo - BANQUE CASINO">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/bouygues_immobilier.jpg'}}" alt="logo - bouygues-immobilier">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/cic_sud_ouest.png'}}" alt="logo - CIC-SUD-OUEST">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/ccso.jpg'}}" alt="logo - CCSO">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/groupama.png'}}" alt="logo - GROUPAMA">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/leclerc.jpg'}}" alt="logo - LECLERC">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/msd.png'}}" alt="logo - MSD_Avignon">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/oxford.jpg'}}" alt="logo - Oxford">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/raynal_et_roquelaure.jpg'}}" alt="logo - Raynal-et-Roquelaure">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/unosel.jpg'}}" alt="logo - UNOSEL">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/veolia.jpg'}}" alt="logo - Veolia">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/verdie.jpg'}}" alt="logo - Verdié-Voyage">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="https://www.bergerac.fr/">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/bergerac.jpg'}}" alt="logo - Bergerac">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="http://www.bordeaux.fr">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/bordeaux.jpg'}}" alt="logo - Bordeaux">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="https://www.artengo.fr">
-									<img class="logo-img img-responsive" src="{{'img/logo_confiance/artengo.jpg'}}" alt="logo - Artengo">
-								</a>
-							</div>
-							<div class="item">
-								<a target="_blank" href="https://www.banquepopulaire.fr">
-									<img class="logo-img img-responsive" src={{'img/logo_confiance/banque_populaire.jpg'}} " alt=" logo - banque populaire">
-								</a>
-							</div>
-						</div>
-					</div>
-					<!-- END COL  -->
-				</div>
-				<!--END  ROW  -->
-			</div>
+			{% endfor %}
 		</div>
-		<!-- REPRENDRE A CONTACTEZ NOUS -->
-		<section id='contact' class="contact-us section-padding">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="section-title text-center wow zoomIn">
-							<h2 class="h2-style">Contactez-nous</h2>
-							<hr class="hr-taille">
-						</div>
-					</div>
+
+		<h2>Liste des projets</h2>
+		<div class="row">
+			{% for project in projects|projectFilter(1) %}
+				<div class="col-3">
+					<p>{{ project.name}}</p>
+					{% for category in project.category %}
+						<p>{{ category.name }}</p>
+					{% endfor %}
+
 				</div>
-				<div class="row contact">
-					<div class="wow fadeInDown col-xs-12 col-md-6">
-						<div>
-							<h3>Parlons de vos projets</h3>
-							<p>
-								<b>Pour répondre au mieux à votre demande, nous avons besoin d’en savoir un peu plus.</b>
-							</p>
-						</div>
-						<div class="mt60 mb60 clearfix">
-							<div id="contact-form-14">
-								<form class="contact-form commentsblock" action="https://www.agence-supersonik.com/#contact-form-14" method="post">
-									<div class="form-group">
-										<div class="color-background-formgrunion-field-wrap grunion-field-name-wrap form-control-wrap">
-											<label for="g14-nom" class="grunion-field-label name">Nom
-												<span>(obligatoire)</span>
-											</label>
-											<input id="g14-nom" name="g14-nom" type="text" class="name form-control" aria-required="true" required>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<div class="color-background-form grunion-field-wrap grunion-field-email-wrap form-control-wrap">
-											<label for="g14-email" class="grunion-field-label email">E-mail
-												<span>(obligatoire)</span>
-											</label>
-											<input id="g14-email" name="g14-email" type="email" class="email form-control" aria-required="true" required>
-										</div>
-									</div>
-
-									<div class="form-group mbnone">
-										<div class="color-background-form grunion-field-wrap grunion-field-textarea-wrap form-control-wrap">
-											<label for="contact-form-comment-g14-message" class="grunion-field-label textarea">
-												Message
-											</label>
-											<textarea id="color-background-form contact-form-comment-g14-message" class="textarea form-control" name="g14-message" rows="5"></textarea>
-										</div>
-									</div>
-
-									<div class="jp-recaptcha-contain">
-										<label for=""></label>
-										<span class="g-recaptcha jp-recaptcha" data-sitekey="6LcE2zgUAAAAAPpxOKrH4FjcGyYx5LveohTzqnHN">
-											<div>
-												<div>
-													<iframe src="https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LcE2zgUAAAAAPpxOKrH4FjcGyYx5LveohTzqnHN&co=aHR0cHM6Ly93d3cuYWdlbmNlLXN1cGVyc29uaWsuY29tOjQ0Mw..&hl=fr&v=qc5B-qjP0QEimFYUxcpWJy5B&size=normal&cb=u1a8tk4z5i51" role="presentation" name="a-ddkuktnc1y14" scrolling="no" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe>
-												</div>
-											</div>
-										</span>
-									</div>
-									<p class="contact-submit">
-										<input type="submit" class="pushbutton-wide" value="C'est parti !">
-									</p>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-6">
-						<h3>Vous souhaitez nous rejoindre ?</h3>
-						<p>
-							Nous sommes très souvent à la recherche de nouveaux profils. Si tu es
-							<b>passionné(e), dynamique,</b>
-							merci de nous adresser ton CV et ta lettre de motivation à l’adresse mail suivante :
-						</p>
-						<p>
-							<a href="mailto:contact@agence-supersonik.com" class="btn btn-alt btn-primary">contact@agence-supersonik.com</a>
-						</p>
-						<br>
-						<div class="single_address">
-							<div class="icon-background-circle">
-								<i class="fa fa-rocket color-logo-contact"></i>
-							</div>
-							<p>9 rue Maurice Lanoire 33000 BORDEAUX <br> 49 rue Ponthieu 75000 PARIS</p>
-						</div>
-						<div class="single_address">
-							<div class="icon-background-circle">
-								<i class="fa fa-phone color-logo-contact"></i>
-							</div>
-							<p>09 825 056 50</p>
-						</div>
-						<div class="single_address">
-						<div class="icon-background-circle">
-							<i class="fa fa-envelope color-logo-contact"></i>
-						</div>
-							<p>contact@agence-supersonik.com</p>
-						</div>
-						<div class="class=" single_address single_address_mbnone custom"">
-							<spam class="custom-yellow-follow">Suivez-nous</spam>
-							<div class="div-reseaux">
-								<a href="https://www.instagram.com/supersonikagence/?hl=fr">
-									<i class="social fab fa-instagram"></i>
-								</a>
-								<a href="https://www.facebook.com/Agence-SupersoniK-291945980839964/" title="Rejoignez-nous sur facebook">
-									<i class="social fab fa-facebook-f"></i>
-								</a>
-								<a href="https://www.linkedin.com/company/11202741/">
-									<i class="social fab fa-linkedin"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<iframe src=" https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11317.644470277333!2d-0.574868!3d44.8335603!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb0ce9678816c9a30!2sAgence%20Supersonik!5e0!3m2!1sfr!2sfr!4v1610383929975!5m2!1sfr!2sfr" width="1525" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-		</main>
-
-		<footer class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<h3>Agence supersonik</h3>
-						<div class="espace-div-footer"></div>
-						<address>
-							<i class="fa fa-map-pin"></i>
-							 9 rue Maurice Lanoire 33000 BORDEAUX
-							 <br>
-							 <div class="espace-div-footer"></div>
-							<i class="fa fa-map-pin"></i>
-							49 rue Ponthieu 75000 PARIS
-							<br>
-							<div class="espace-div-footer"></div>
-							<i class="fa fa-phone"></i>
-							09 825 056 50
-							<br>
-							<div class="espace-div-footer"></div>
-							<i class="fa fa-envelope"></i>
-							contact@agence-supersonik.com
-							<br>
-						</address>
-					</div>
-					<div class="col-md-4">
-						<h3>Les Actualités</h3>
-						<div class="single_latest_blog">
-							<a href="https://www.agence-supersonik.com/test/"></a>
-
-							<img class="img-footer" src="{{'img/place_de_la_bourse_bordeaux.webp'}}" alt="place de la bourse">
-
-							<span>
-								12/01/2021
-								<br>
-								Par -
-							</span>
-						<a href="https://www.agence-supersonik.com/test/">Top 16 des lieux insolites à Bordeaux</a>
-						</div>
-						<div class="single_latest_blog">
-								<a href="https://www.agence-supersonik.com/les-12-meilleurs-plus-beaux-auditoriums-de-bordeaux/"></a>
-
-							<img class="img-footer" src="{{'img/footer/construction-plage-lescapade.webp'}}" alt="construction plage">
-
-							<span>
-								12/01/2021
-								<br>
-								Par -
-							</span>
-						<a href="https://www.agence-supersonik.com/les-12-meilleurs-plus-beaux-auditoriums-de-bordeaux/">Top 10 des tendances team building</a>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<h3>Nos réalisations</h3>
-						<div class="single_latest_blog">
-							<a href="https://www.agence-supersonik.com/project/summer-camp/">
-								<img class="img-footer" src="{{'img/footer/summer-camp.webp'}}" alt="belle vue piscine">
-							</a>
-							<span>
-								12/01/2021
-								<br>
-								Client - Banque Casino
-							</span>
-							<a href="https://www.agence-supersonik.com/project/summer-camp/">SUMMER CAMP 2017</a>
-						</div>
-						<div class="single_latest_blog">
-								<a href="https://www.agence-supersonik.com/project/hello-marseille/">
-								<img class="img-footer" src="{{'img/footer/raynal-roquelaure-marseille.webp'}}" alt="port marseille">
-							</a>
-							<span>
-								12/01/2021
-								<br>
-								Client - Raynal & Roquelaure
-							</span>
-							<a href="https://www.agence-supersonik.com/project/hello-marseille/">SÉMINAIRE R&R MARSEILLE 2017</a>
-						</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-10 text-right">
-						<div class="copyrigth">
-							<p>
-								<small>Agence supersonik - Copyright © 2021 | Tous droits réservés. |
-									<em>
-										Site réalisé par
-										<a href="http://www.cymoz.fr">Cymoz</a>
-									</em>
-								</small>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		{# <script type="text/javascript" src="/js/slick-1.8.1/slick/slick.min.js"></script> #}
-		<script type="text/javascript" src="/js/OwlCarousel2/dist/owl.carousel.min.js"></script>
-		<script type="text/javascript" src"/assets/animation-nav-bar.js"></script>
-
-		<script>
-
-				$('.owl-carousel').owlCarousel({
-					loop:true,
-					margin:5,
-					autoplay:true,
-					autoplayTimeout:3500,
-					autoplayHoverPause:false,
-					nav:true,
-					responsive:{
-						0:{
-							items:1
-						},
-						600:{
-							items:3
-						},
-						1000:{
-							items:9
-						}
-					}
-				});
-
-		</script>
-
-		{# <script type="text/javascript">
-    		 $(document).ready(function(){
-     		 $('.owl-carousel').slick({
-
-      		});
-    }); #}
+			{% endfor %}
+		</div>
+	</div>
 
 
-	{% endblock %}
-    <div class="container">
-        <h2>Liste des membres</h2>
-        <div class="row">
-            {% for member in members %}
-                <div class="col-4">
-                    <img src="{{ vich_uploader_asset(member, 'imageFile') | imagine_filter('member_photo_desktop') }}"
-                         alt="{{ member }}" />
+{#	<main>#}
+{#		<section>#}
+{#			<h2 class="h2-style">Qui sommes-nous?</h2>#}
 
-                    <br>
-                    {{ member.firstName }} {{ member.lastName }}<br>
-                    {{ member.description|raw }}
-                </div>
-            {% endfor %}
-        </div>
+{#			<hr class="hr-taille">#}
 
-        <h2>Liste des projets</h2>
-        <div class="row">
-            {% for project in projects|projectFilter(1) %}
-                <div class="col-3">
-                    <p>{{ project.name}}</p>
-                    {% for category in project.category %}
-                        <p>{{ category.name }}</p>
-                    {% endfor %}
+{#			<div class="page_content">#}
+{#				<div class="container">#}
+{#					<div class="row">#}
+{#						<div class="col-md-12 taille-div-col-md-12">#}
+{#							<h2 class="yellow espace-h2">Supersonik</h2>#}
+{#							<h3 class="h3-style">Un interlocuteur unique, à l’écoute de vos besoins !</h3>#}
+{#						</div>#}
+{#						<div class="col-md-8 col-sm-12 taille-txt-div-qui">#}
 
-                </div>
-            {% endfor %}
-        </div>
+{#							<p class="espace"></p>#}
 
-    </div>
+{#							<p class="taille-text-p">La philosophie de SupersoniK, agence de communication évènementielle à Bordeaux, est de tout mettre en œuvre pour apporter une réponse globale et efficace à vos objectifs de communication.</p>#}
+
+{#							<p class="espace"></p>#}
+
+{#							<p class="taille-text-p">Communication#}
+{#								<span class="gras">interne</span>#}
+{#								par la conception et la mise en place de séminaires, conventions, challenges, roadshows etc.</p>#}
+
+{#							<p class="espace"></p>#}
+
+{#							<p class="taille-text-p">Communication#}
+{#								<span class="gras">externe</span>#}
+{#								par l’organisation de soirées à thème, grands événements, inaugurations, opérations de street marketing, Relations Publiques etc.</p>#}
+{#						</div>#}
+{#						<div class="col-md-4">#}
+{#							<img src="{{'img/fuseeJaune.webp'}}" alt="fuséeJauneSectionQuiSommesNous">#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+
+{#				<p class="bouttunAlignCenter">#}
+{#					<a class="btn btn-primary btn-alt" href="#lagence">Découvrir notre agence</a>#}
+{#				</p>#}
+
+{#				<div class="row row-margin">#}
+{#					<div class="col-md-12">#}
+{#						<div class="text-center">#}
+{#							<h2 class="text-gray rotator espaceAgenceReactive">Une agence#}
+{#								<span class="rotate">#}
+{#									<span class="rotating flip up">#}
+{#										<span class="front">#}
+{#											réactive#}
+{#										</span>#}
+{#										<span class="back">#}
+{#											expérimentée#}
+{#										</span>#}
+{#									</span>#}
+{#								</span>#}
+{#							</h2>#}
+{#							<span></span>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+
+{#				<div class="container">#}
+{#					<div class="row">#}
+{#						<div class="col-md-3 col-xs-12">#}
+{#							<p class="text-center">#}
+{#								<i class="fa fa-bullhorn fa- icon-yellow icon-large "></i>#}
+{#							</p>#}
+{#							<h3 class="text-center margin-h3-agence-ex">#}
+{#								<span class="cardMotImportant">CONSEIL</span>#}
+{#							</h3>#}
+{#							<hr class="separation-grise">#}
+
+{#							<p class="textJustify"> Nous sommes à votre écoute afin de bien comprendre la manière dont vous souhaitez intégrer votre évènement à votre stratégie de communication existante. Cette première phase de diagnostic nous permet alors de vous proposer un concept événementiel unique au coeur d’une stratégie de communication globale!</p>#}
+
+{#						</div>#}
+
+{#						<div class="col-md-3 col-xs-12">#}
+{#							<p class="text-center">#}
+{#								<i class="fa fa-cogs fa- icon-yellow icon-large"></i>#}
+{#							</p>#}
+{#							<h3 class="text-center">#}
+{#								<span class="cardMotImportant">CONCEPTION</span>#}
+{#							</h3>#}
+{#							<hr class="separation-grise">#}
+
+{#							<p class="textJustify">Tout au long de la phase de conception, nous vous proposerons un plan concept et un moment clé pour vous.</p>#}
+{#						</div>#}
+
+{#						<div class="col-md-3 col-xs-12">#}
+{#							<p class="text-center">#}
+{#								<i class="fa fa-plug fa- icon-yellow icon-large"></i>#}
+{#							</p>#}
+{#							<h3 class="text-center">#}
+{#								<span class="cardMotImportant">PRODUCTION</span>#}
+{#							</h3>#}
+{#							<hr class="separation-grise">#}
+
+{#							<p class="textJustify">Nous suivons votre événement de A à Z de la sélection des différentes réunions préparatoires et montage de dossiers juridiques, fiscaux…</p>#}
+{#						</div>#}
+
+{#						<div class="col-md-3 col-xs-12">#}
+
+{#							<p class="text-center">#}
+{#								<i class="fa fa-desktop fa- icon-yellow icon-large"></i>#}
+{#							</p>#}
+{#							<h3 class="text-center">#}
+{#								<span class="cardMotImportant">SOLUTIONS DIGITALES</span>#}
+{#							</h3>#}
+{#							<hr class="separation-grise">#}
+
+{#							<p class="textJustify">Nous vous proposons des solutions alternatives à la formation process, ou encore, de comportements que vous pouvez rencontrer.</p>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+
+{#		</section>#}
+
+{#		<section class="team">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-12">#}
+{#						<div class="section-title text-center wow zoomIn">#}
+{#							<h2 class="h2-style">L'équipe supersonik</h2>#}
+{#							<hr class="hr-taille">#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+
+{#			<div class="container">#}
+{#				<div class="row text-center">#}
+{#					<div class="col-md-4 col-sm-6 col-xs-12 no-padding">#}
+{#						<div class="hovereffect">#}
+{#							<img class="img-responsive teammate" src="{{asset('img/olivier.jpg')}}" alt="Directeur Fondateur">#}
+
+{#							<div class="overlay tailleDivImgTeam">#}
+{#								<h2>Olivier MIGNON#}
+{#									<br>#}
+{#									<span>Directeur / Fondateur</span>#}
+{#								</h2>#}
+{#								<!-- <h3></h3> -->#}
+{#								<p>#}
+{#									<a href="https://fr.linkedin.com/in/olivier-mignon-7971791b/en">#}
+{#										<i class="fa fa-linkedin"></i>#}
+{#									</a>#}
+{#									<a href="olivier.mignon@agence-supersonik.com">#}
+{#										<i class="fa fa-envelope-o"></i>#}
+{#									</a>#}
+{#								</p>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-md-4 col-sm-6 col-xs-12 no-padding">#}
+{#						<div class="hovereffect tailleDivImgTeam">#}
+{#							<img class="img-responsive teammate" src="{{asset('img/clementine.jpg')}}" alt="Chef de projet">#}
+
+{#							<div class="overlay">#}
+{#								<h2>Clémentine DELAVAUD#}
+{#									<br>#}
+{#									<span>Chef de projet</span>#}
+{#								</h2>#}
+{#								<!-- <h3></h3> -->#}
+{#								<p>#}
+{#									<a href="http://www.agence-supersonik.com/linkedin.com/in/clementinedelavaud">#}
+{#										<i class="fa fa-linkedin"></i>#}
+{#									</a>#}
+{#									<a href="clementine@agence-supersonik.com">#}
+{#										<i class="fa fa-envelope-o"></i>#}
+{#									</a>#}
+{#								</p>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-md-4 col-sm-6 col-xs-12 no-padding">#}
+{#						<div class="hovereffect tailleDivImgTeam">#}
+{#							<img class="img-responsive teammate" src="{{asset('img/agathe_texier.jpg')}}" alt="Chef de projet">#}
+
+{#							<div class="overlay">#}
+{#								<h2>Agathe TEXIER#}
+{#									<br>#}
+{#									<span>Chef de projet</span>#}
+{#								</h2>#}
+{#								<!-- <h3></h3> -->#}
+{#								<p>#}
+{#									<a href="https://www.linkedin.com/in/agathe-texier-aab78082">#}
+{#										<i class="fa fa-linkedin"></i>#}
+{#									</a>#}
+{#									<a href="agathe@agence-supersonik.com">#}
+{#										<i class="fa fa-envelope-o"></i>#}
+{#									</a>#}
+{#								</p>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}
+
+{#		<section class="template_counter section-padding">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-xs-12 col-sm-3">#}
+{#						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre" data-wow-relay="0.2s">#}
+
+{#							<h1>10</h1>#}
+{#							<span></span>#}
+{#							<h5>ANS D'EXPÉRIENCE</h5>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-xs-12 col-sm-3">#}
+{#						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre">#}
+{#							<h1>+ 150</h1>#}
+{#							<span></span>#}
+{#							<h5>ÉVENEMENTS</h5>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-xs-12 col-sm-3">#}
+{#						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre">#}
+{#							<h1>1 000 000</h1>#}
+{#							<span></span>#}
+{#							<h5>IDÉES</h5>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-xs-12 col-sm-3">#}
+{#						<div class="single_counter wow bounceIn page-scroll colloneDivJauneChiffre">#}
+{#							<h1>+ 60 000</h1>#}
+{#							<span></span>#}
+{#							<h5>PARTICIPANTS</h5>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}
+
+{#		<section id="portfolio" class="template_portfolio">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-12">#}
+{#						<div class="section-title text-center">#}
+{#							<h2 class="h2-style espace-h2">Nos réalisations</h2>#}
+{#							<hr class="hr-taille">#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#					<div class="col-xs-12 col-sm-4">#}
+{#						<div class="single_our_work">#}
+{#							<div class="sing_work_photo">#}
+{#								<figure>#}
+{#									<img class="img-responsive img-taille-realisations" src="{{asset('img/portfolioImg/msd1.webp')}}" alt="Grande Roue public">#}
+{#									<div class="sing_work_text_link">#}
+{#										<div class="sing_work_content_wrap">#}
+{#											<div class="sing_work_content">#}
+{#												<div class="sing_link_img">#}
+{#													<a href="#" data-toggle="modal" date-target="#projetModa18139">#}
+{#														<i class="fa fa-eye"></i>#}
+{#													</a>#}
+{#												</div>#}
+{#												<h5>MSD - Santé Animale 2019</h5>#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#								</figure>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+
+{#					<div class="col-xs-12 col-sm-4">#}
+{#						<div class="single_our_work">#}
+{#							<div class="sing_work_photo">#}
+{#								<figure>#}
+{#									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/plage_photo_groupe.webp'}}" alt="photo plage mer soleil public">#}
+{#									<div class="sing_work_text_link">#}
+{#										<div class="sing_work_content_wrap">#}
+{#											<div class="sing_work_content">#}
+{#												<div class="sing_link_img">#}
+{#													<a href="#" data-toggle="modal" date-target="#projetModa18139">#}
+{#														<i class="fa fa-eye"></i>#}
+{#													</a>#}
+{#												</div>#}
+{#												<h5>Séminaire des 30 ans de Scalian</h5>#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#								</figure>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+
+{#					<div class="col-xs-12 col-sm-4">#}
+{#						<div class="single_our_work">#}
+{#							<div class="sing_work_photo">#}
+{#								<figure>#}
+{#									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/fete_bois_foret.webp'}}" alt="forêt bois lumière">#}
+{#									<div class="sing_work_text_link">#}
+{#										<div class="sing_work_content_wrap">#}
+{#											<div class="sing_work_content">#}
+{#												<div class="sing_link_img">#}
+{#													<a href="#" data-toggle="modal" date-target="#projetModa18139">#}
+{#														<i class="fa fa-eye"></i>#}
+{#													</a>#}
+{#												</div>#}
+{#												<h5>Mariage de Leslie & David</h5>#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#								</figure>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+
+{#					<div class="col-xs-12 col-sm-4">#}
+{#						<div class="single_our_work">#}
+{#							<div class="sing_work_photo">#}
+{#								<figure>#}
+{#									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/plage_sable.webp"'}} alt=" nature paysage plage mer">#}
+{#									<div class="sing_work_text_link">#}
+{#										<div class="sing_work_content_wrap">#}
+{#											<div class="sing_work_content">#}
+{#												<div class="sing_link_img">#}
+{#													<a href="#" data-toggle="modal" date-target="#projetModa18139">#}
+{#														<i class="fa fa-eye"></i>#}
+{#													</a>#}
+{#												</div>#}
+{#												<h5>Summer Camp Banque Casino</h5>#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#								</figure>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+
+{#					<div class="col-xs-12 col-sm-4">#}
+{#						<div class="single_our_work">#}
+{#							<div class="sing_work_photo">#}
+{#								<figure>#}
+{#									<img class="img-responsive img-taille-realisations" src="{{'img/portfolioImg/seville_a_l_essentiel.webp"'}} alt=" voyage séville">#}
+{#									<div class="sing_work_text_link">#}
+{#										<div class="sing_work_content_wrap">#}
+{#											<div class="sing_work_content">#}
+{#												<div class="sing_link_img">#}
+{#													<a href="#" data-toggle="modal" date-target="#projetModa18139">#}
+{#														<i class="fa fa-eye"></i>#}
+{#													</a>#}
+{#												</div>#}
+{#												<h5>Voyage à Séville – CIC Sud-Ouest</h5>#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#								</figure>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+
+{#				<div class="row">#}
+{#					<div class="col-md-offset-3 col-xs-12 col-md-6"></div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#					<div class="col-md-12 text-center">#}
+{#						<a href="https://www.agence-supersonik.com/realisations/" class="btn btn-primary btn-alt">Voir tous les projets</a>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}
+
+{#		<section id="products" class="team">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-12">#}
+{#						<div class="section-title text-center wow zooIn" style="visibility: visible; animation-name: hb;">#}
+{#							<h2 class="h2-style espace-h2">Notre expertise</h2>#}
+{#							<hr class="hr-taille">#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+
+{#			<div class="container">#}
+{#				<div class="row text-center">#}
+{#					<div class="col-md-6 col-xs-12 no-padding taille-div-expertise">#}
+{#						<div class="hovereffect2">#}
+{#							<img class="taille-img-expertise" src="{{'img/formations_ludiques.jpg'}}" alt="formations ludiques">#}
+
+{#							<div class="overlay">#}
+{#								<h2>FORMATIONS LUDIQUES</h2>#}
+{#								<p>#}
+{#									<a href="https://www.agence-supersonik.com/product/scenes-de/">Voir le produit</a>#}
+{#								</p>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+
+{#					<div class="col-md-6 col-xs-12 no-padding taille-div-expertise">#}
+{#						<div class="hovereffect2">#}
+{#							<img class="taille-img-expertise" src="{{'img/escapade.jpg"'}} alt=" escapade">#}
+
+{#							<div class="overlay">#}
+{#								<h2>Séminaires & conventions</h2>#}
+{#								<p>#}
+{#									<a href="https://www.agence-supersonik.com/product/seminaires-conventions/">Voir le																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												                                        produit</a>#}
+{#								</p>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}
+
+{#		<section>#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-12">#}
+{#						<div class="section-title text-center">#}
+{#							<h2 class="h2-style espace-h2">Le SuperMag</h2>#}
+{#							<hr class="hr-taille">#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#					<div class="col-xs-12 col-sm-6">#}
+{#						<div class="single_blog">#}
+{#							<div class="single_blog_header">#}
+{#								<h3>Top 16 des lieux insolite...</h3>#}
+{#								<span>Par: admin - Le: 29/12/2020</span>#}
+{#							</div>#}
+{#							<div class="hovereffect3">#}
+{#								<img class="img-responsive" src="{{'img/place_de_la_bourse_bordeaux.webp'}}" alt="place de la bourse Bordeaux">#}
+{#								<div class="overlay">#}
+{#									<p>TOP 16 DES LIEUX INSOLITES À BORDEAUX</p>#}
+
+{#									<p>#}
+{#										Nous vous avons sélectionnés les 16 meilleurs sites insolites de Bordeaux pour vos événements. #NOUVEAUX Espace Marengo L’espace Marengo est un lieu atypique et singulier, au coeur du quartier Saint-Michel à Bordeaux. Ancien Cloître au 13ème siècle puis…</p>#}
+
+{#									<a class="info" href="https://www.agence-supersonik.com/test/" title="Top 16 des lieux insolites à Bordeaux">Lire l'article</a>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-xs-12 col-sm-6">#}
+{#						<div class="sbi sbi_mob_col_auto sbi_col_4" id="sb_instagram" data-id="5750287402" data-num="12" data-res="auto" data-cols="4" data-options="{" sortby": " none" , " showbio" : " false"," feedid": " 5750287402" , " headercolor" : " " , " imagepadding" : " 5" ," mid": " m2e4mwe5zg==", " disablecache" : " false" , " sbicacheexists" : " true"," callback": " nme3otqynzm5ogm3.ndk2ytg5mdqwytjinmi1zdc0mgq=" , " sbiheadercache" : " true" }" data-sbi-index="1">#}
+
+{#							<p style="text-align: center;">Unable to show Instagram photos</p>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#					<div class="col-md-12 text-center">#}
+{#						<a href="https://www.agence-supersonik.com/actualites/" class="btn btn-primary btn-alt">Voir#}
+{#																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								                            toutes les actualités</a>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}
+{#		<div class="partner-logo section-padding">#}
+{#			<div class="container">#}
+{#				<div class="row text-center">#}
+{#					<div class="col-md-12">#}
+{#						<div class="section-title">#}
+{#							<h2 class="h2-style espace-h2">Ils nous font confiance</h2>#}
+{#							<hr class="hr-taille">#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#					<div class="col-md-12">#}
+{#						<div class="logos owl-carousel owl-theme wow fadeInRight">#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="http://www.scalian.com/accueil/">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/scalian.png'}}" alt="logo - Scalian">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="https://www.kury.fr/">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/kury_ingenierie.png'}}" alt="logo - Kury Ingénierie">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/banque_casino.png'}}" alt="logo - BANQUE CASINO">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/bouygues_immobilier.jpg'}}" alt="logo - bouygues-immobilier">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/cic_sud_ouest.png'}}" alt="logo - CIC-SUD-OUEST">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/ccso.jpg'}}" alt="logo - CCSO">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/groupama.png'}}" alt="logo - GROUPAMA">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/leclerc.jpg'}}" alt="logo - LECLERC">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/msd.png'}}" alt="logo - MSD_Avignon">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/oxford.jpg'}}" alt="logo - Oxford">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/raynal_et_roquelaure.jpg'}}" alt="logo - Raynal-et-Roquelaure">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/unosel.jpg'}}" alt="logo - UNOSEL">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/veolia.jpg'}}" alt="logo - Veolia">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/verdie.jpg'}}" alt="logo - Verdié-Voyage">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="https://www.bergerac.fr/">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/bergerac.jpg'}}" alt="logo - Bergerac">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="http://www.bordeaux.fr">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/bordeaux.jpg'}}" alt="logo - Bordeaux">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="https://www.artengo.fr">#}
+{#									<img class="logo-img img-responsive" src="{{'img/logo_confiance/artengo.jpg'}}" alt="logo - Artengo">#}
+{#								</a>#}
+{#							</div>#}
+{#							<div class="item">#}
+{#								<a target="_blank" href="https://www.banquepopulaire.fr">#}
+{#									<img class="logo-img img-responsive" src={{'img/logo_confiance/banque_populaire.jpg'}} " alt=" logo - banque populaire">#}
+{#								</a>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<!-- END COL  -->#}
+{#				</div>#}
+{#				<!--END  ROW  -->#}
+{#			</div>#}
+{#		</div>#}
+{#		<!-- REPRENDRE A CONTACTEZ NOUS -->#}
+{#		<section id='contact' class="contact-us section-padding">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-12">#}
+{#						<div class="section-title text-center wow zoomIn">#}
+{#							<h2 class="h2-style">Contactez-nous</h2>#}
+{#							<hr class="hr-taille">#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row contact">#}
+{#					<div class="wow fadeInDown col-xs-12 col-md-6">#}
+{#						<div>#}
+{#							<h3>Parlons de vos projets</h3>#}
+{#							<p>#}
+{#								<b>Pour répondre au mieux à votre demande, nous avons besoin d’en savoir un peu plus.</b>#}
+{#							</p>#}
+{#						</div>#}
+{#						<div class="mt60 mb60 clearfix">#}
+{#							<div id="contact-form-14">#}
+{#								<form class="contact-form commentsblock" action="https://www.agence-supersonik.com/#contact-form-14" method="post">#}
+{#									<div class="form-group">#}
+{#										<div class="color-background-formgrunion-field-wrap grunion-field-name-wrap form-control-wrap">#}
+{#											<label for="g14-nom" class="grunion-field-label name">Nom#}
+{#												<span>(obligatoire)</span>#}
+{#											</label>#}
+{#											<input id="g14-nom" name="g14-nom" type="text" class="name form-control" aria-required="true" required>#}
+{#										</div>#}
+{#									</div>#}
+
+{#									<div class="form-group">#}
+{#										<div class="color-background-form grunion-field-wrap grunion-field-email-wrap form-control-wrap">#}
+{#											<label for="g14-email" class="grunion-field-label email">E-mail#}
+{#												<span>(obligatoire)</span>#}
+{#											</label>#}
+{#											<input id="g14-email" name="g14-email" type="email" class="email form-control" aria-required="true" required>#}
+{#										</div>#}
+{#									</div>#}
+
+{#									<div class="form-group mbnone">#}
+{#										<div class="color-background-form grunion-field-wrap grunion-field-textarea-wrap form-control-wrap">#}
+{#											<label for="contact-form-comment-g14-message" class="grunion-field-label textarea">#}
+{#												Message#}
+{#											</label>#}
+{#											<textarea id="color-background-form contact-form-comment-g14-message" class="textarea form-control" name="g14-message" rows="5"></textarea>#}
+{#										</div>#}
+{#									</div>#}
+
+{#									<div class="jp-recaptcha-contain">#}
+{#										<label for=""></label>#}
+{#										<span class="g-recaptcha jp-recaptcha" data-sitekey="6LcE2zgUAAAAAPpxOKrH4FjcGyYx5LveohTzqnHN">#}
+{#											<div>#}
+{#												<div>#}
+{#													<iframe src="https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LcE2zgUAAAAAPpxOKrH4FjcGyYx5LveohTzqnHN&co=aHR0cHM6Ly93d3cuYWdlbmNlLXN1cGVyc29uaWsuY29tOjQ0Mw..&hl=fr&v=qc5B-qjP0QEimFYUxcpWJy5B&size=normal&cb=u1a8tk4z5i51" role="presentation" name="a-ddkuktnc1y14" scrolling="no" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe>#}
+{#												</div>#}
+{#											</div>#}
+{#										</span>#}
+{#									</div>#}
+{#									<p class="contact-submit">#}
+{#										<input type="submit" class="pushbutton-wide" value="C'est parti !">#}
+{#									</p>#}
+{#								</form>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-xs-12 col-md-6">#}
+{#						<h3>Vous souhaitez nous rejoindre ?</h3>#}
+{#						<p>#}
+{#							Nous sommes très souvent à la recherche de nouveaux profils. Si tu es#}
+{#							<b>passionné(e), dynamique,</b>#}
+{#							merci de nous adresser ton CV et ta lettre de motivation à l’adresse mail suivante :#}
+{#						</p>#}
+{#						<p>#}
+{#							<a href="mailto:contact@agence-supersonik.com" class="btn btn-alt btn-primary">contact@agence-supersonik.com</a>#}
+{#						</p>#}
+{#						<br>#}
+{#						<div class="single_address">#}
+{#							<div class="icon-background-circle">#}
+{#								<i class="fa fa-rocket color-logo-contact"></i>#}
+{#							</div>#}
+{#							<p>9 rue Maurice Lanoire 33000 BORDEAUX <br> 49 rue Ponthieu 75000 PARIS</p>#}
+{#						</div>#}
+{#						<div class="single_address">#}
+{#							<div class="icon-background-circle">#}
+{#								<i class="fa fa-phone color-logo-contact"></i>#}
+{#							</div>#}
+{#							<p>09 825 056 50</p>#}
+{#						</div>#}
+{#						<div class="single_address">#}
+{#						<div class="icon-background-circle">#}
+{#							<i class="fa fa-envelope color-logo-contact"></i>#}
+{#						</div>#}
+{#							<p>contact@agence-supersonik.com</p>#}
+{#						</div>#}
+{#						<div class="class=" single_address single_address_mbnone custom"">#}
+{#							<spam class="custom-yellow-follow">Suivez-nous</spam>#}
+{#							<div class="div-reseaux">#}
+{#								<a href="https://www.instagram.com/supersonikagence/?hl=fr">#}
+{#									<i class="social fab fa-instagram"></i>#}
+{#								</a>#}
+{#								<a href="https://www.facebook.com/Agence-SupersoniK-291945980839964/" title="Rejoignez-nous sur facebook">#}
+{#									<i class="social fab fa-facebook-f"></i>#}
+{#								</a>#}
+{#								<a href="https://www.linkedin.com/company/11202741/">#}
+{#									<i class="social fab fa-linkedin"></i>#}
+{#								</a>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</section>#}
+
+{#			<iframe src=" https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11317.644470277333!2d-0.574868!3d44.8335603!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb0ce9678816c9a30!2sAgence%20Supersonik!5e0!3m2!1sfr!2sfr!4v1610383929975!5m2!1sfr!2sfr" width="1525" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>#}
+{#		</main>#}
+
+{#		<footer class="footer">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-4">#}
+{#						<h3>Agence supersonik</h3>#}
+{#						<div class="espace-div-footer"></div>#}
+{#						<address>#}
+{#							<i class="fa fa-map-pin"></i>#}
+{#							 9 rue Maurice Lanoire 33000 BORDEAUX#}
+{#							 <br>#}
+{#							 <div class="espace-div-footer"></div>#}
+{#							<i class="fa fa-map-pin"></i>#}
+{#							49 rue Ponthieu 75000 PARIS#}
+{#							<br>#}
+{#							<div class="espace-div-footer"></div>#}
+{#							<i class="fa fa-phone"></i>#}
+{#							09 825 056 50#}
+{#							<br>#}
+{#							<div class="espace-div-footer"></div>#}
+{#							<i class="fa fa-envelope"></i>#}
+{#							contact@agence-supersonik.com#}
+{#							<br>#}
+{#						</address>#}
+{#					</div>#}
+{#					<div class="col-md-4">#}
+{#						<h3>Les Actualités</h3>#}
+{#						<div class="single_latest_blog">#}
+{#							<a href="https://www.agence-supersonik.com/test/"></a>#}
+
+{#							<img class="img-footer" src="{{'img/place_de_la_bourse_bordeaux.webp'}}" alt="place de la bourse">#}
+
+{#							<span>#}
+{#								12/01/2021#}
+{#								<br>#}
+{#								Par -#}
+{#							</span>#}
+{#						<a href="https://www.agence-supersonik.com/test/">Top 16 des lieux insolites à Bordeaux</a>#}
+{#						</div>#}
+{#						<div class="single_latest_blog">#}
+{#								<a href="https://www.agence-supersonik.com/les-12-meilleurs-plus-beaux-auditoriums-de-bordeaux/"></a>#}
+
+{#							<img class="img-footer" src="{{'img/footer/construction-plage-lescapade.webp'}}" alt="construction plage">#}
+
+{#							<span>#}
+{#								12/01/2021#}
+{#								<br>#}
+{#								Par -#}
+{#							</span>#}
+{#						<a href="https://www.agence-supersonik.com/les-12-meilleurs-plus-beaux-auditoriums-de-bordeaux/">Top 10 des tendances team building</a>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-md-4">#}
+{#						<h3>Nos réalisations</h3>#}
+{#						<div class="single_latest_blog">#}
+{#							<a href="https://www.agence-supersonik.com/project/summer-camp/">#}
+{#								<img class="img-footer" src="{{'img/footer/summer-camp.webp'}}" alt="belle vue piscine">#}
+{#							</a>#}
+{#							<span>#}
+{#								12/01/2021#}
+{#								<br>#}
+{#								Client - Banque Casino#}
+{#							</span>#}
+{#							<a href="https://www.agence-supersonik.com/project/summer-camp/">SUMMER CAMP 2017</a>#}
+{#						</div>#}
+{#						<div class="single_latest_blog">#}
+{#								<a href="https://www.agence-supersonik.com/project/hello-marseille/">#}
+{#								<img class="img-footer" src="{{'img/footer/raynal-roquelaure-marseille.webp'}}" alt="port marseille">#}
+{#							</a>#}
+{#							<span>#}
+{#								12/01/2021#}
+{#								<br>#}
+{#								Client - Raynal & Roquelaure#}
+{#							</span>#}
+{#							<a href="https://www.agence-supersonik.com/project/hello-marseille/">SÉMINAIRE R&R MARSEILLE 2017</a>#}
+{#						</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#				<div class="row">#}
+{#					<div class="col-md-10 text-right">#}
+{#						<div class="copyrigth">#}
+{#							<p>#}
+{#								<small>Agence supersonik - Copyright © 2021 | Tous droits réservés. |#}
+{#									<em>#}
+{#										Site réalisé par#}
+{#										<a href="http://www.cymoz.fr">Cymoz</a>#}
+{#									</em>#}
+{#								</small>#}
+{#							</p>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</footer>#}
+{#		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>#}
+{#		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>#}
+{#		#}{# <script type="text/javascript" src="/js/slick-1.8.1/slick/slick.min.js"></script> #}
+{#		<script type="text/javascript" src="/js/OwlCarousel2/dist/owl.carousel.min.js"></script>#}
+{#		<script type="text/javascript" src"/assets/animation-nav-bar.js"></script>#}
+
+{#		<script>#}
+
+{#				$('.owl-carousel').owlCarousel({#}
+{#					loop:true,#}
+{#					margin:5,#}
+{#					autoplay:true,#}
+{#					autoplayTimeout:3500,#}
+{#					autoplayHoverPause:false,#}
+{#					nav:true,#}
+{#					responsive:{#}
+{#						0:{#}
+{#							items:1#}
+{#						},#}
+{#						600:{#}
+{#							items:3#}
+{#						},#}
+{#						1000:{#}
+{#							items:9#}
+{#						}#}
+{#					}#}
+{#				});#}
+
+{#		</script>#}
+
+{#		#}{# <script type="text/javascript">#}
+{#    		 $(document).ready(function(){#}
+{#     		 $('.owl-carousel').slick({#}
+
+{#      		});#}
+{#    }); #}
 {% endblock %}

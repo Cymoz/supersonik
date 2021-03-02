@@ -24,10 +24,12 @@ class EasyAdminSubscriber implements EventSubscriberInterface
      * @var CacheManager
      */
     private $manager;
+
     /**
      * @var UploaderHelper
      */
     private $helper;
+
     /**
      * @var EntityRepository
      */

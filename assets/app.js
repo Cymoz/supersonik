@@ -13,6 +13,6 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
-import 'animation-nav-bar.js';
+import './animation-nav-bar';
 
 window.$ = $;
